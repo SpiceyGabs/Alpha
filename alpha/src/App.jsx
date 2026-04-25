@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import './App.css'
+import Navbar from './components/Navbar'
+import Sidebar from './components/Sidebar'
 import Home from './pages/Home'
 import MoneySnapshot from './pages/MoneySnapshot'
 import SimLab from './pages/SimLab'
@@ -8,10 +10,10 @@ import Learn from './pages/Learn'
 
 function App() {
  
-  return (
+  return <Navbar/> 
+  (
     <div className="App" > 
-    <h1>My App</h1>
-      
+      {/* <Sidebar /> */}
       <Home />
       <MoneySnapshot />
       <SimLab />
