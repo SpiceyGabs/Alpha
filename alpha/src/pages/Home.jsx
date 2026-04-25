@@ -15,7 +15,6 @@ const featureCards = [
   {
     id: 'tracks',
     colorClass: 'featureCardGold',
-    //////icon: '','','','🏆',
     title: 'Strategy Tracks',
     description:
       'Choose your financial race strategy. From The Bystander to The Sprinter - structured pathways designed around your goals and risk tolerance.',
@@ -25,7 +24,6 @@ const featureCards = [
   {
     id: 'simlab',
     colorClass: 'featureCardOrange',
-    //////icon: '','','','🔬',
     title: 'Simulation Lab',
     description:
       'Run real-world financial simulations. Rent vs buy, vehicle finance, investment comparisons - see the numbers before you commit.',
@@ -35,10 +33,9 @@ const featureCards = [
   {
     id: 'learn',
     colorClass: 'featureCardMaroon',
-    //////icon: '','','','📖',
     title: 'Learn+',
     description:
-      'Your financial glossary and explainer hub. Understand every term, concept, and calculation the platform uses - in plain language.',
+      'Your financial glossary and explainer hub. Understand every term, concept, and calculation the platform uses in plain language. Coming soon!',
     linkLabel: 'Start learning →',
     href: '/learn',
   },
@@ -50,6 +47,7 @@ const personas = [
     name: 'Vanessa Gumede',
     role: 'Logistics Officer · Durban',
     salary: 'R38 000 pm',
+
   },
   {
     id: 'shakira',
@@ -65,9 +63,9 @@ const personas = [
   },
 ];
 
-// This is so that the animation loops seamlessly
+// This is so that the animation loops seamlessly 
 const tickerContent =
-  '🏃 Start your financial marathon · Build wealth over time · Your first five years matter · Pace yourself for life · '.repeat(6);
+  '🏃 Start your financial marathon · Build wealth over time · Your first five years matter so pace yourself for life · '.repeat(6);
 
 
 function FeatureCard({ colorClass, icon, title, description, linkLabel, href }) {
