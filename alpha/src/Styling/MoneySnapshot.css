@@ -1,0 +1,687 @@
+/* ============================================================
+   MoneySnapshot.css  —  ABSA NextGen Wealth Studio
+   Import in MoneySnapshot.jsx with: import './MoneySnapshot.css'
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ---------- Design Tokens ---------- */
+:root {
+  --colorRed: #FF1A25;
+  --colorMaroon: #861028;
+  --colorPurple: #3D1A3A;
+  --colorOffwhite: #F3F7F0;
+  --colorOrange: #FF914D;
+  --colorGold: #BA8837;
+  --colorWhite: #ffffff;
+  --colorGreen: #2e7d32;
+  --shadowDefault: 0 4px 24px rgba(61, 26, 58, 0.10);
+  --radiusCard: 16px;
+  --radiusPill: 999px;
+  --fontDisplay: 'Playfair Display', serif;
+  --fontBody: 'DM Sans', sans-serif;
+}
+
+/* ---------- Page Shell ---------- */
+.snapshotPage {
+  min-height: 100vh;
+  background-color: var(--colorOffwhite);
+  font-family: var(--fontBody);
+  color: var(--colorPurple);
+}
+
+/* ---------- Hero Banner ---------- */
+.snapHero {
+  background: linear-gradient(135deg, var(--colorPurple) 0%, var(--colorMaroon) 100%);
+  padding: 48px 48px 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.snapHero::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 2px solid rgba(186, 136, 55, 0.15);
+  pointer-events: none;
+}
+
+.snapHeroLabel {
+  display: inline-block;
+  background: rgba(186, 136, 55, 0.2);
+  color: var(--colorGold);
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: var(--radiusPill);
+  margin-bottom: 16px;
+  border: 1px solid rgba(186, 136, 55, 0.3);
+}
+
+.snapHero h1 {
+  font-family: var(--fontDisplay);
+  font-size: clamp(26px, 4vw, 42px);
+  color: var(--colorWhite);
+  margin: 0 0 8px;
+}
+
+.snapHero p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 16px;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* ---------- Input Section ---------- */
+/*
+  This card "floats" above the hero using negative top margin and z-index.
+  The z-index ensures it sits on top of the hero's decorative circle.
+*/
+.snapInputSection {
+  background: var(--colorWhite);
+  margin: -28px 48px 32px;
+  border-radius: var(--radiusCard);
+  box-shadow: var(--shadowDefault);
+  padding: 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.snapInputTitle {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--colorMaroon);
+  margin-bottom: 20px;
+}
+
+.inputGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.inputGroup label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #999999;
+}
+
+.inputGroup input,
+.inputGroup select {
+  border: 1.5px solid #e8e0e8;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 15px;
+  font-family: var(--fontBody);
+  color: var(--colorPurple);
+  background: var(--colorOffwhite);
+  outline: none;
+  transition: border-color 0.15s, background 0.15s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus {
+  border-color: var(--colorMaroon);
+  background: var(--colorWhite);
+}
+
+/* ---------- Buttons ---------- */
+.buttonCalculate {
+  background: var(--colorMaroon);
+  color: var(--colorWhite);
+  border: none;
+  padding: 14px 32px;
+  border-radius: var(--radiusPill);
+  font-family: var(--fontBody);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.18s;
+}
+
+.buttonCalculate:hover {
+  background: var(--colorRed);
+  transform: translateY(-1px);
+}
+
+.buttonGold {
+  background: var(--colorGold);
+  color: var(--colorWhite);
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--radiusPill);
+  font-family: var(--fontBody);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.buttonGold:hover {
+  opacity: 0.88;
+}
+
+.buttonOutlineWhite {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 12px 24px;
+  border-radius: var(--radiusPill);
+  font-family: var(--fontBody);
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.buttonOutlineWhite:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ---------- Dashboard Wrapper ---------- */
+.snapDashboard {
+  padding: 0 48px 48px;
+}
+
+/* ---------- Two-column grid for main cards ---------- */
+.snapMainGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+/* ---------- Circular Progress Card ---------- */
+.circleCard {
+  background: var(--colorWhite);
+  border-radius: var(--radiusCard);
+  box-shadow: var(--shadowDefault);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circleCardTitle {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--colorMaroon);
+  margin-bottom: 24px;
+  align-self: flex-start;
+}
+
+/* The SVG ring is rotated so progress fills from the top */
+.progressRingWrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 24px;
+}
+
+.progressRingWrapper svg {
+  transform: rotate(-90deg);
+}
+
+/*
+  The ring centre is absolutely positioned over the SVG.
+  It uses inset: 0 which is shorthand for top: 0; right: 0; bottom: 0; left: 0.
+*/
+.ringCenter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ringTrackLabel {
+  font-size: 11px;
+  color: #999999;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.ringAmount {
+  font-family: var(--fontDisplay);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--colorPurple);
+  line-height: 1.1;
+}
+
+.ringSub {
+  font-size: 11px;
+  color: #aaaaaa;
+  margin-top: 2px;
+}
+
+.ringLegend {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #777777;
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legendDotGold   { background: var(--colorGold); }
+.legendDotLight  { background: #f0eaf0; border: 1px solid #ddd; }
+
+.ringBalanceNote {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 13px;
+  color: #888888;
+}
+
+.ringBalanceValue {
+  font-weight: 700;
+  color: var(--colorPurple);
+}
+
+.ringEmptyState {
+  color: #bbbbbb;
+  text-align: center;
+  padding: 40px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ---------- Salary Breakdown Card ---------- */
+.breakdownCard {
+  background: var(--colorWhite);
+  border-radius: var(--radiusCard);
+  box-shadow: var(--shadowDefault);
+  padding: 32px;
+}
+
+.breakdownTitle {
+  font-family: var(--fontDisplay);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--colorPurple);
+  margin: 0 0 20px;
+}
+
+.breakdownRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0eaf0;
+  font-size: 14px;
+}
+
+.breakdownRow:last-child {
+  border-bottom: none;
+}
+
+.breakdownLabel {
+  color: #888888;
+}
+
+.breakdownValue          { font-weight: 600; color: var(--colorPurple); }
+.breakdownValueNegative  { font-weight: 600; color: var(--colorRed); }
+.breakdownValuePositive  { font-weight: 600; color: var(--colorGreen); }
+.breakdownValueGold      { font-weight: 700; color: var(--colorGold); font-size: 16px; }
+
+/* The highlighted total row at the bottom of the card */
+.breakdownRowHighlight {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(134, 16, 40, 0.04);
+  margin: 4px -8px 0;
+  padding: 14px 8px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.breakdownHighlightLabel {
+  font-weight: 700;
+  color: var(--colorPurple);
+}
+
+.breakdownEmptyState {
+  color: #bbbbbb;
+  font-size: 14px;
+  padding-top: 16px;
+  line-height: 1.6;
+}
+
+.breakdownEmptyHint {
+  color: var(--colorMaroon);
+  font-weight: 600;
+}
+
+/* ---------- Secondary Grid (Tax & Goals) ---------- */
+.snapSecondaryGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.infoCard {
+  background: var(--colorWhite);
+  border-radius: var(--radiusCard);
+  box-shadow: var(--shadowDefault);
+  padding: 28px;
+}
+
+.infoCardLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--colorMaroon);
+  margin-bottom: 16px;
+}
+
+.infoCard h3 {
+  font-family: var(--fontDisplay);
+  font-size: 20px;
+  color: var(--colorPurple);
+  margin: 0 0 16px;
+}
+
+/* Tax deduction rows */
+.deductionRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 6px 0;
+  color: #666666;
+}
+
+.deductionRowValue {
+  font-weight: 600;
+  color: var(--colorRed);
+}
+
+.taxNote {
+  margin-top: 16px;
+  padding: 10px 12px;
+  background: rgba(134, 16, 40, 0.05);
+  border-radius: 8px;
+  font-size: 12px;
+  color: #777777;
+  line-height: 1.5;
+}
+
+.infoCardEmptyState {
+  color: #bbbbbb;
+  font-size: 14px;
+  padding-top: 16px;
+}
+
+/* Goals progress bars */
+.goalItem {
+  margin-bottom: 16px;
+}
+
+.goalLabelRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #666666;
+  margin-bottom: 6px;
+}
+
+.goalPercentage {
+  font-weight: 600;
+  color: var(--colorGold);
+}
+
+.goalBar {
+  height: 8px;
+  background: #f0eaf0;
+  border-radius: var(--radiusPill);
+  overflow: hidden;
+}
+
+.goalFill {
+  height: 100%;
+  border-radius: var(--radiusPill);
+  background: linear-gradient(90deg, var(--colorGold), var(--colorOrange));
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- Practical Tips ---------- */
+.tipsSection {
+  background: var(--colorWhite);
+  border-radius: var(--radiusCard);
+  box-shadow: var(--shadowDefault);
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+.tipsSectionLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--colorMaroon);
+  margin: 0;
+}
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.tipCard {
+  border: 1.5px solid #f0eaf0;
+  border-radius: 12px;
+  padding: 18px;
+  transition: border-color 0.15s;
+}
+
+.tipCard:hover {
+  border-color: var(--colorGold);
+}
+
+.tipIcon {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.tipTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--colorPurple);
+  margin-bottom: 4px;
+}
+
+.tipText {
+  font-size: 12px;
+  color: #888888;
+  line-height: 1.5;
+}
+
+/* ---------- CTA Strip ---------- */
+.snapCtaStrip {
+  background: linear-gradient(135deg, var(--colorMaroon), var(--colorPurple));
+  border-radius: var(--radiusCard);
+  padding: 32px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.snapCtaStrip h3 {
+  font-family: var(--fontDisplay);
+  color: var(--colorWhite);
+  font-size: 22px;
+  margin: 0 0 6px;
+}
+
+.snapCtaStrip p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 14px;
+  margin: 0;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Nudge ---------- */
+/*
+  Fixed position so nudges float above all page content.
+  pointer-events: none on the container means the page remains
+  clickable everywhere except on the toast itself.
+*/
+.nudgeContainer {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.nudgeToast {
+  background: var(--colorWhite);
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(61, 26, 58, 0.18);
+  padding: 14px 20px;
+  max-width: 300px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  pointer-events: all;
+  animation: nudgeIn 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  border-left: 4px solid var(--colorGold);
+  position: relative;
+}
+
+.nudgeToastWarning { border-left-color: var(--colorOrange); }
+.nudgeToastGreat   { border-left-color: var(--colorGreen); }
+
+.nudgeEmoji {
+  font-size: 20px;
+  flex-shrink: 0;
+  line-height: 1.3;
+}
+
+.nudgeText {
+  font-size: 13px;
+  color: var(--colorPurple);
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.nudgeClose {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #bbbbbb;
+  font-size: 14px;
+  font-family: var(--fontBody);
+  line-height: 1;
+}
+
+.nudgeClose:hover {
+  color: var(--colorMaroon);
+}
+
+/* Keyframe Animations  */
+@keyframes nudgeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .snapHero {
+    padding: 32px 24px 56px;
+  }
+
+  .snapInputSection {
+    margin: -24px 16px 24px;
+    padding: 20px;
+  }
+
+  .snapDashboard {
+    padding: 0 16px 48px;
+  }
+
+  .snapMainGrid,
+  .snapSecondaryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .snapCtaStrip {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nudgeContainer {
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+  }
+
+  .nudgeToast {
+    max-width: 100%;
+  }
+}
