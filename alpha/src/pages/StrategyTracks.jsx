@@ -3,7 +3,7 @@
 // All visual styling lives in StrategyTracks.css
 
 import { useState } from 'react';
-import './StrategyTracks.css';
+import '../Styling/StrategyTracks.css';
 
 // ─── Track Data ───────────────────────────────────────────────────────────────
 // Keeping track data here makes it easy to add or edit tracks without

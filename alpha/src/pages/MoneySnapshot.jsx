@@ -3,7 +3,7 @@
 // All visual styling lives in MoneySnapshot.css
 
 import { useState, useRef } from 'react';
-import './MoneySnapshot.css';
+import '../Styling/MoneySnapshot.css';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 

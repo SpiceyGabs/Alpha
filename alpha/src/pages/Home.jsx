@@ -2,7 +2,7 @@
 // This file contains ONLY component structure and JavaScript logic.
 // All visual styling lives in Home.css
 
-import './Home.css';
+import '../Styling/Home.css';
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 // These arrays live in the JSX file because they are data the component uses.

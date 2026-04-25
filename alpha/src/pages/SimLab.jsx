@@ -3,7 +3,7 @@
 // All visual styling lives in Simlab.css
 
 import { useState } from 'react';
-import './Simlab.css';
+import '../Styling/Simlab.css';
 
 // ─── Simulation Definitions ───────────────────────────────────────────────────
 
