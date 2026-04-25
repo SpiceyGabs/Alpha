@@ -15,15 +15,12 @@ function Home() {
         It's designed specifically for you; a young, South African professional.
       </p>
 
-      {sidebar}
-      
       <p>
         Use the Money Snapshot to see your current position, explore Strategy Tracks to find your financial marathon pace,
         and run simulations to compare major decisions like renting vs buying.
       </p>
 
-      {/* Nextttttt buttttttoonnn lets ggaaauuurrr!!!!!!!! */}
-      <NextButton to="/snapshot" label="Get started >" />
+    
     </div>
 
   );

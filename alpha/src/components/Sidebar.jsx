@@ -8,8 +8,8 @@ function Sidebar() {
         <ul>
           <li><NavLink to="/">🏠Home</NavLink></li>
           <li><NavLink to="/snapshot">💰Money Snapshot</NavLink></li>
-          <li><NavLink to="/strategyTracks">🏆Strategy Tracks</NavLink></li>
-          <li><NavLink to="/simulationLab">🧪Simulation Lab</NavLink></li>
+          <li><NavLink to="/tracks">🏆Strategy Tracks</NavLink></li>
+          <li><NavLink to="/simulation">🧪Simulation Lab</NavLink></li>
           <li><NavLink to="/learn">📘Learn +</NavLink></li>
         </ul>
       </nav>
