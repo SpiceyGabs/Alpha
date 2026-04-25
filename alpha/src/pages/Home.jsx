@@ -15,7 +15,7 @@ const featureCards = [
     icon: '📊',
     title: 'Money Snapshot',
     description:
-      'See your complete financial position at a glance — gross income, deductions, net salary, savings progress, and monthly cash flow.',
+      'See your complete financial position at a glance - gross income, deductions, net salary, savings progress, and monthly cash flow.',
     linkLabel: 'View your snapshot →',
     href: '/snapshot',
   },
@@ -25,7 +25,7 @@ const featureCards = [
     icon: '🏆',
     title: 'Strategy Tracks',
     description:
-      'Choose your financial race strategy. From The Bystander to The Sprinter — structured pathways designed around your goals and risk tolerance.',
+      'Choose your financial race strategy. From The Bystander to The Sprinter - structured pathways designed around your goals and risk tolerance.',
     linkLabel: 'Explore tracks →',
     href: '/tracks',
   },
@@ -35,7 +35,7 @@ const featureCards = [
     icon: '🔬',
     title: 'Simulation Lab',
     description:
-      'Run real-world financial simulations. Rent vs buy, vehicle finance, investment comparisons — see the numbers before you commit.',
+      'Run real-world financial simulations. Rent vs buy, vehicle finance, investment comparisons - see the numbers before you commit.',
     linkLabel: 'Run a simulation →',
     href: '/simlab',
   },
@@ -45,7 +45,7 @@ const featureCards = [
     icon: '📖',
     title: 'Learn+',
     description:
-      'Your financial glossary and explainer hub. Understand every term, concept, and calculation the platform uses — in plain language.',
+      'Your financial glossary and explainer hub. Understand every term, concept, and calculation the platform uses - in plain language.',
     linkLabel: 'Start learning →',
     href: '/learn',
   },
@@ -121,7 +121,7 @@ function Home() {
         <p className="heroSubtitle">
           A life planner and financial simulator built for young South African
           professionals. Visualise, plan, and simulate your wealth-building
-          journey — paced like a marathon, not a sprint.
+          journey - paced like a marathon, not a sprint.
         </p>
         <div className="heroButtons">
           <a href="/snapshot" className="buttonPrimary">Get started →</a>
@@ -153,7 +153,7 @@ function Home() {
           "The best time to train your wallet for a marathon was 20 years ago.
           The next best time is now."
         </p>
-        <footer className="quoteAuthor">— ABSA NextGen Wealth Studio</footer>
+        <footer className="quoteAuthor">- ABSA NextGen Wealth Studio</footer>
       </blockquote>
 
       {/* ── Personas ── */}

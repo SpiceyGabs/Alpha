@@ -1,11 +1,7 @@
-/* ============================================================
-   MoneySnapshot.css  —  ABSA NextGen Wealth Studio
-   Import in MoneySnapshot.jsx with: import './MoneySnapshot.css'
-   ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-/* ---------- Design Tokens ---------- */
+/* Design Tokens */
 :root {
   --colorRed: #FF1A25;
   --colorMaroon: #861028;
@@ -22,7 +18,7 @@
   --fontBody: 'DM Sans', sans-serif;
 }
 
-/* ---------- Page Shell ---------- */
+/* Page Shell */
 .snapshotPage {
   min-height: 100vh;
   background-color: var(--colorOffwhite);
@@ -30,7 +26,7 @@
   color: var(--colorPurple);
 }
 
-/* ---------- Hero Banner ---------- */
+/* Hero Banner */
 .snapHero {
   background: linear-gradient(135deg, var(--colorPurple) 0%, var(--colorMaroon) 100%);
   padding: 48px 48px 72px;
@@ -78,7 +74,7 @@
   font-weight: 300;
 }
 
-/* ---------- Input Section ---------- */
+/* Input Section */
 /*
   This card "floats" above the hero using negative top margin and z-index.
   The z-index ensures it sits on top of the hero's decorative circle.
@@ -144,7 +140,7 @@
   background: var(--colorWhite);
 }
 
-/* ---------- Buttons ---------- */
+/* Buttons */
 .buttonCalculate {
   background: var(--colorMaroon);
   color: var(--colorWhite);
@@ -201,12 +197,12 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* ---------- Dashboard Wrapper ---------- */
+/* Dashboard Wrapper */
 .snapDashboard {
   padding: 0 48px 48px;
 }
 
-/* ---------- Two-column grid for main cards ---------- */
+/* Two-column grid for main cards */
 .snapMainGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -214,7 +210,7 @@
   margin-bottom: 24px;
 }
 
-/* ---------- Circular Progress Card ---------- */
+/* Circular Progress Card */
 .circleCard {
   background: var(--colorWhite);
   border-radius: var(--radiusCard);
@@ -328,7 +324,7 @@
   line-height: 1.6;
 }
 
-/* ---------- Salary Breakdown Card ---------- */
+/* Salary Breakdown Card */
 .breakdownCard {
   background: var(--colorWhite);
   border-radius: var(--radiusCard);
@@ -395,7 +391,7 @@
   font-weight: 600;
 }
 
-/* ---------- Secondary Grid (Tax & Goals) ---------- */
+/* Secondary Grid (Tax & Goals) */
 .snapSecondaryGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -488,7 +484,7 @@
   transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ---------- Practical Tips ---------- */
+/* Practical Tips */
 .tipsSection {
   background: var(--colorWhite);
   border-radius: var(--radiusCard);
@@ -542,7 +538,7 @@
   line-height: 1.5;
 }
 
-/* ---------- CTA Strip ---------- */
+/* CTA Strip */
 .snapCtaStrip {
   background: linear-gradient(135deg, var(--colorMaroon), var(--colorPurple));
   border-radius: var(--radiusCard);
@@ -573,7 +569,7 @@
   flex-wrap: wrap;
 }
 
-/* ---------- Nudge ---------- */
+/* Nudge */
 /*
   Fixed position so nudges float above all page content.
   pointer-events: none on the container means the page remains
@@ -650,7 +646,7 @@
   }
 }
 
-/* ---------- Responsive ---------- */
+/* Responsive */
 @media (max-width: 768px) {
   .snapHero {
     padding: 32px 24px 56px;

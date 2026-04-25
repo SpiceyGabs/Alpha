@@ -38,7 +38,7 @@ const SIMULATIONS = [
   },
 ];
 
-// Tooltip definitions — shown when the user clicks ⓘ next to an input label
+// Tooltip definitions - shown when the user clicks ⓘ next to an input label
 const TOOLTIPS = {
   salary:       'Your gross monthly income before any deductions. Used to determine affordability ratios.',
   propertyPrice:'The full purchase price of the property you are considering buying.',
@@ -49,7 +49,7 @@ const TOOLTIPS = {
   loanTerm:     'Home loans in South Africa are typically 20–30 years. Shorter terms mean higher monthly payments but less interest paid overall.',
   vehiclePrice: 'The purchase price of the vehicle. Second-hand Audi RS5 range: R1.17m–R1.65m.',
   monthlyContrib:'The amount you invest each month. Consistency is more important than the starting amount.',
-  years:        'Investment growth is exponential — the longer you invest, the more powerful compound growth becomes.',
+  years:        'Investment growth is exponential - the longer you invest, the more powerful compound growth becomes.',
 };
 
 // ─── Helper Functions ─────────────────────────────────────────────────────────
@@ -296,7 +296,7 @@ function SimInputField({ fieldKey, label, tipKey, value, onChange }) {
   );
 }
 
-// Results panels — one component per simulation type
+// Results panels - one component per simulation type
 function CostOfLivingResults({ data }) {
   return (
     <div className="simResults">
@@ -344,7 +344,7 @@ function CostOfLivingResults({ data }) {
 function PropertyResults({ data }) {
   return (
     <div className="simResults">
-      <p className="simResultsTitle">Rent vs Property — {data.termYears} Year Comparison</p>
+      <p className="simResultsTitle">Rent vs Property - {data.termYears} Year Comparison</p>
       <div className="simResultColumns">
         <div className="simResultCard">
           <p className="simResultCardTitle">Monthly Bond Repayment</p>
@@ -354,7 +354,7 @@ function PropertyResults({ data }) {
         <div className="simResultCard">
           <p className="simResultCardTitle">Monthly Rent</p>
           <p className="simResultValue">{formatRand(data.totalCostRenting / (data.termYears * 12))}</p>
-          <p className="simResultLabel">No equity built — pure occupancy cost</p>
+          <p className="simResultLabel">No equity built - pure occupancy cost</p>
         </div>
         <div className="simResultCard">
           <p className="simResultCardTitle">Total Cost to Own ({data.termYears} yrs)</p>
@@ -371,7 +371,7 @@ function PropertyResults({ data }) {
         <p className="simVerdictTitle">💡 Verdict</p>
         <p className="simVerdictText">
           {data.rentAdvantage
-            ? `Renting saves you ${formatRand(data.difference)} over ${data.termYears} years at these numbers. However, ownership builds equity — factor in likely property appreciation before deciding.`
+            ? `Renting saves you ${formatRand(data.difference)} over ${data.termYears} years at these numbers. However, ownership builds equity - factor in likely property appreciation before deciding.`
             : `Buying is ${formatRand(data.difference)} cheaper over ${data.termYears} years at these rates, and you own the asset at the end. If you can cover the deposit and afford the monthly costs, buying builds long-term wealth.`}
         </p>
       </div>
@@ -407,7 +407,7 @@ function VehicleResults({ data }) {
         <div className="simResultCard">
           <p className="simResultCardTitle">Safe Monthly Budget</p>
           <p className="simResultValue">{formatRand(data.safeMax)}</p>
-          <p className="simResultLabel">20% of your net salary — the recommended maximum</p>
+          <p className="simResultLabel">20% of your net salary - the recommended maximum</p>
         </div>
         <div className="simResultCard">
           <p className="simResultCardTitle">Estimated Insurance</p>
@@ -439,7 +439,7 @@ function VehicleResults({ data }) {
 function InvestmentResults({ data }) {
   return (
     <div className="simResults">
-      <p className="simResultsTitle">Investment Comparison — {data.years} Years</p>
+      <p className="simResultsTitle">Investment Comparison - {data.years} Years</p>
       <div className="simResultColumns">
         <div className="simResultCard">
           <p className="simResultCardTitle">Gold Investment (8% pa)</p>
@@ -456,7 +456,7 @@ function InvestmentResults({ data }) {
         <p className="simVerdictTitle">💡 Verdict</p>
         <p className="simVerdictText">
           {data.goldWins
-            ? `Gold outperforms the USD fund by ${formatRand(data.difference)} over ${data.years} years at these rates. However, gold is more volatile — diversification across both is often the wiser approach.`
+            ? `Gold outperforms the USD fund by ${formatRand(data.difference)} over ${data.years} years at these rates. However, gold is more volatile - diversification across both is often the wiser approach.`
             : `The USD fund outperforms gold by ${formatRand(data.difference)} over ${data.years} years at these rates. Currency diversification also protects against rand weakness.`}
         </p>
       </div>
@@ -582,7 +582,7 @@ function Simlab() {
               </button>
             </div>
 
-            {/* Results — rendered below the inputs once calculation runs */}
+            {/* Results - rendered below the inputs once calculation runs */}
             {results && activeSim === 'costOfLiving' && <CostOfLivingResults data={results} />}
             {results && activeSim === 'property'     && <PropertyResults     data={results} />}
             {results && activeSim === 'vehicle'      && <VehicleResults      data={results} />}

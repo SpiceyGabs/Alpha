@@ -1,7 +1,4 @@
-/* ============================================================
-   StrategyTracks.css  —  ABSA NextGen Wealth Studio
-   Import with: import './StrategyTracks.css'
-   ============================================================ */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
 
@@ -21,7 +18,7 @@
   --fontBody: 'DM Sans', sans-serif;
 }
 
-/* ---------- Page Shell ---------- */
+/* Page Shell */
 .tracksPage {
   min-height: 100vh;
   background-color: var(--colorOffwhite);
@@ -29,7 +26,7 @@
   color: var(--colorPurple);
 }
 
-/* ---------- Hero ---------- */
+/* Hero */
 .tracksHero {
   background: linear-gradient(135deg, var(--colorPurple) 0%, var(--colorMaroon) 100%);
   padding: 48px 48px 72px;
@@ -38,7 +35,7 @@
 }
 
 .tracksHero::after {
-  content: '';
+  content: '';                 /* What? brb */
   position: absolute;
   bottom: -80px;
   right: -80px;
@@ -78,7 +75,7 @@
   font-weight: 300;
 }
 
-/* ---------- Input Panel ---------- */
+/* Input Panel */
 .tracksInputPanel {
   background: var(--colorWhite);
   margin: -28px 48px 40px;
@@ -156,7 +153,7 @@
   transform: translateY(-1px);
 }
 
-/* ---------- Track Cards Grid ---------- */
+/* Track Cards Grid */
 .tracksContent {
   padding: 0 48px 48px;
 }
@@ -184,7 +181,7 @@
   margin-bottom: 40px;
 }
 
-/* ---------- Individual Track Card ---------- */
+/* Individual track card */
 .trackCard {
   background: var(--colorWhite);
   border-radius: var(--radiusCard);
@@ -390,7 +387,7 @@
   color: var(--colorWhite);
 }
 
-/* ---------- Milestone Journey Timeline ---------- */
+/* Milestone Journey Timeline */
 .milestonesSection {
   background: var(--colorWhite);
   border-radius: var(--radiusCard);
@@ -475,7 +472,7 @@
   padding: 0 4px;
 }
 
-/* ---------- Fees info strip ---------- */
+/* Fees info strip */
 .feesStrip {
   background: rgba(134, 16, 40, 0.05);
   border-radius: var(--radiusCard);
@@ -502,7 +499,7 @@
   color: var(--colorMaroon);
 }
 
-/* ---------- CTA Strip ---------- */
+/* CTA Strip */
 .tracksCtaStrip {
   background: linear-gradient(135deg, var(--colorMaroon), var(--colorPurple));
   border-radius: var(--radiusCard);
@@ -569,7 +566,7 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* ---------- Responsive ---------- */
+/* Responsive */
 @media (max-width: 768px) {
   .tracksHero         { padding: 32px 24px 56px; }
   .tracksInputPanel   { margin: -24px 16px 32px; padding: 20px; }
@@ -578,4 +575,3 @@
   .milestoneTimeline::before { display: none; }
   .tracksCtaStrip     { flex-direction: column; align-items: flex-start; }
 }
-

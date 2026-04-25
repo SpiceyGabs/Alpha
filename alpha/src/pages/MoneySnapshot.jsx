@@ -33,7 +33,7 @@ const PRACTICAL_TIPS = [
     id: 'invest',
     icon: '📈',
     title: 'Invest Early',
-    text: 'Time in the market beats timing the market — starting now is always better than waiting.',
+    text: 'Time in the market beats timing the market - starting now is always better than waiting.',
   },
   {
     id: 'rent',
@@ -136,7 +136,7 @@ function SavingsRing({ savings, net, track }) {
           stroke="#f0eaf0"
           strokeWidth="14"
         />
-        {/* Filled arc — strokeDashoffset controls how much is filled */}
+        {/* Filled arc - strokeDashoffset controls how much is filled */}
         <circle
           cx="100" cy="100" r={radius}
           fill="none"
@@ -255,7 +255,7 @@ function MoneySnapshot() {
         addNudge('⚠️', `Your rent is ${calculated.rentPct.toFixed(0)}% of gross income. The recommended cap is 30%.`, 'warning');
       }
       if (calculated.savings >= calculated.netSalary * 0.15) {
-        addNudge('🌟', 'You are saving over 15% of your net salary — you are on track!', 'great');
+        addNudge('🌟', 'You are saving over 15% of your net salary - you are on track!', 'great');
       }
       if (calculated.availableBalance < 3000) {
         addNudge('💡', 'Your available balance is tight. Review your fixed costs to create more breathing room.', 'warning');

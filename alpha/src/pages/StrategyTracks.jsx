@@ -7,7 +7,7 @@ import '../Styling/StrategyTracks.css';
 
 // ─── Track Data ───────────────────────────────────────────────────────────────
 // Keeping track data here makes it easy to add or edit tracks without
-// touching any JSX or CSS — in a larger app this would live in data/tracks.js
+// touching any JSX or CSS - in a larger app this would live in data/tracks.js
 
 const TRACKS = [
   {
@@ -39,7 +39,7 @@ const TRACKS = [
     risk: 'Moderate',
     term: '36–60 months',
     contributionRate: 0.12,
-    nudge: '"You\'re on track with your savings goal — keep your pace steady."',
+    nudge: '"You\'re on track with your savings goal - keep your pace steady."',
     milestones: [
       { year: 'Year 1', desc: 'Build a 3-month emergency fund' },
       { year: 'Year 2', desc: 'Reduce high-interest debt' },
@@ -83,7 +83,7 @@ const TRACKS = [
       { year: 'Year 3', desc: 'Property purchase or strong deposit readiness' },
       { year: 'Year 4–5', desc: 'Build equity and long-term financial stability' },
     ],
-    tradeOffs: 'Slower liquidity — money is tied up. Lower short-term flexibility for strong long-term asset growth.',
+    tradeOffs: 'Slower liquidity - money is tied up. Lower short-term flexibility for strong long-term asset growth.',
   },
 ];
 
@@ -207,7 +207,7 @@ function StrategyTracks() {
 
       {/* ── Input Panel ── */}
       <div className="tracksInputPanel">
-        <p className="tracksInputLabel">📝 Your details (optional — unlocks personalised contribution amounts)</p>
+        <p className="tracksInputLabel">📝 Your details (optional - unlocks personalised contribution amounts)</p>
         <div className="tracksInputRow">
           <div className="inputGroup">
             <label htmlFor="netSalary">Net Monthly Salary (R)</label>
@@ -264,7 +264,7 @@ function StrategyTracks() {
         {activeTrack && (
           <div className="milestonesSection">
             <h3 className="milestonesTitle">
-              Your milestone journey — {activeTrack.name}
+              Your milestone journey - {activeTrack.name}
             </h3>
             <MilestoneTimeline milestones={activeTrack.milestones} currentYear={1} />
           </div>

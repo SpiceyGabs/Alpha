@@ -1,7 +1,4 @@
-/* ============================================================
-   Simlab.css  —  ABSA NextGen Wealth Studio
-   Import with: import './Simlab.css'
-   ============================================================ */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
 
@@ -21,7 +18,7 @@
   --fontBody: 'DM Sans', sans-serif;
 }
 
-/* ---------- Page Shell ---------- */
+/* Page Shell */
 .simlabPage {
   min-height: 100vh;
   background-color: var(--colorOffwhite);
@@ -29,7 +26,7 @@
   color: var(--colorPurple);
 }
 
-/* ---------- Hero ---------- */
+/* Hero */
 .simlabHero {
   background: linear-gradient(135deg, var(--colorPurple) 0%, var(--colorMaroon) 100%);
   padding: 48px 48px 72px;
@@ -77,7 +74,7 @@
   font-weight: 300;
 }
 
-/* ---------- Main Content ---------- */
+/* Main Content */
 .simlabContent {
   padding: 0 48px 48px;
   margin-top: -28px;
@@ -85,7 +82,7 @@
   z-index: 2;
 }
 
-/* ---------- Simulation Picker (2x2 card grid) ---------- */
+/* Simulation Picker (2x2 card grid) */
 .simlabPickerGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -163,7 +160,7 @@
   background: var(--colorRed);
 }
 
-/* ---------- Active Simulation Panel ---------- */
+/* Active Simulation Panel */
 .simPanel {
   background: var(--colorWhite);
   border-radius: var(--radiusCard);
@@ -336,7 +333,7 @@
   color: var(--colorMaroon);
 }
 
-/* ---------- Results Section ---------- */
+/* Results Section */
 .simResults {
   animation: panelIn 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -449,7 +446,7 @@
   border-color: var(--colorMaroon);
 }
 
-/* ---------- Nudge / Overspending Feedback ---------- */
+/* Nudge / Overspending Feedback */
 .overspendNudge {
   background: rgba(255, 145, 77, 0.1);
   border-left: 4px solid var(--colorOrange);
@@ -469,7 +466,7 @@
   color: #d84315;
 }
 
-/* ---------- Responsive ---------- */
+/* Responsive */
 @media (max-width: 768px) {
   .simlabHero    { padding: 32px 24px 56px; }
   .simlabContent { padding: 0 16px 48px; }

@@ -1,11 +1,7 @@
-/* ============================================================
-   Home.css  —  ABSA NextGen Wealth Studio
-   Import in Home.jsx with: import './Home.css'
-   ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-/* ---------- Design Tokens ---------- */
+/* Design Tokens */
 :root {
   --colorRed: #FF1A25;
   --colorMaroon: #861028;
@@ -21,7 +17,7 @@
   --fontBody: 'DM Sans', sans-serif;
 }
 
-/* ---------- Page Shell ---------- */
+/* Page Shell */
 .homePage {
   min-height: 100vh;
   background-color: var(--colorOffwhite);
@@ -30,7 +26,7 @@
   overflow-x: hidden;
 }
 
-/* ---------- Hero ---------- */
+/* Hero */
 .homeHero {
   background: linear-gradient(135deg, var(--colorPurple) 0%, var(--colorMaroon) 60%, #5a0a1a 100%);
   min-height: 70vh;
@@ -119,7 +115,7 @@
   animation: fadeSlideDown 0.7s 0.3s ease both;
 }
 
-/* ---------- Shared Buttons ---------- */
+/* Shared Buttons */
 .buttonPrimary {
   background: var(--colorGold);
   color: var(--colorWhite);
@@ -162,7 +158,7 @@
   color: var(--colorWhite);
 }
 
-/* ---------- Marathon Ticker Strip ---------- */
+/* Marathon Ticker Strip */
 .marathonStrip {
   background: var(--colorGold);
   padding: 14px 48px;
@@ -172,7 +168,7 @@
 
 .marathonTicker {
   display: inline-block;
-  animation: ticker 18s linear infinite;
+  /* animation: ticker 18s linear infinite; */
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 3px;
@@ -180,7 +176,7 @@
   color: var(--colorWhite);
 }
 
-/* ---------- Features Section ---------- */
+/* Features Section */
 .featuresSection {
   padding: 72px 48px;
   max-width: 1100px;
@@ -291,7 +287,7 @@
   gap: 10px;
 }
 
-/* ---------- Quote Block ---------- */
+/* Quote Block */
 .quoteBlock {
   background: linear-gradient(135deg, var(--colorMaroon), var(--colorPurple));
   margin: 0 48px 72px;
@@ -331,7 +327,7 @@
   text-transform: uppercase;
 }
 
-/* ---------- Persona Strip ---------- */
+/* Persona Strip */
 .personaSection {
   padding: 0 48px 72px;
   max-width: 1100px;
@@ -394,7 +390,7 @@
   display: inline-block;
 }
 
-/* ---------- Footer CTA ---------- */
+/* Footer CTA */
 .homeFooterCta {
   text-align: center;
   padding: 64px 48px;
@@ -415,7 +411,7 @@
   font-size: 16px;
 }
 
-/* ---------- Keyframe Animations ---------- */
+/* Keyframe Animations */
 @keyframes fadeSlideDown {
   from {
     opacity: 0;
@@ -432,7 +428,7 @@
   to   { transform: translateX(-50%); }
 }
 
-/* ---------- Responsive ---------- */
+/* Responsive */
 @media (max-width: 768px) {
   .homeHero {
     padding: 48px 24px 40px;
