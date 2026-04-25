@@ -389,7 +389,6 @@
   display: inline-block;
 }
 
-/* Footer CTA */
 .homeFooterCta {
   text-align: center;
   padding: 64px 48px;
@@ -410,7 +409,7 @@
   font-size: 16px;
 }
 
-/* Keyframe Animations */
+
 @keyframes fadeSlideDown {
   from {
     opacity: 0;
@@ -427,7 +426,7 @@
   to   { transform: translateX(-50%); }
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .homeHero {
     padding: 48px 24px 40px;

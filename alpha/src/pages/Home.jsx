@@ -1,12 +1,5 @@
-// Home.jsx
-// This file contains ONLY component structure and JavaScript logic.
-// All visual styling lives in Home.css
 
 import '../Styling/Home.css';
-
-// ─── Data ────────────────────────────────────────────────────────────────────
-// These arrays live in the JSX file because they are data the component uses.
-// If your app grows, move them into a separate data/homeData.js file and import.
 
 const featureCards = [
   {
@@ -54,40 +47,36 @@ const featureCards = [
 const personas = [
   {
     id: 'vanessa',
-    emoji: '👩🏾',
     name: 'Vanessa Gumede',
     role: 'Logistics Officer · Durban',
     salary: 'R38 000 pm',
   },
   {
     id: 'shakira',
-    emoji: '👩🏽',
     name: 'Shakira Moosraf',
     role: 'General Practitioner · Johannesburg',
     salary: 'R70 000 pm',
   },
   {
     id: 'mpilo',
-    emoji: '👨🏾',
     name: 'Mpilo Dlamini',
     role: 'Actuary · Midrand',
     salary: 'R66 000 pm',
   },
 ];
 
-// Ticker text repeated so the CSS animation loops seamlessly
+// This is so that the animation loops seamlessly
 const tickerContent =
   '🏃 Start your financial marathon · Build wealth over time · Your first five years matter · Pace yourself for life · '.repeat(6);
 
-// ─── Sub-components ───────────────────────────────────────────────────────────
 
 function FeatureCard({ colorClass, icon, title, description, linkLabel, href }) {
   return (
     <article className={`featureCard ${colorClass}`}>
       <div className="featureIcon">{icon}</div>
-      <h3 className="featureTitle">{title}</h3>
-      <p className="featureDescription">{description}</p>
-      <a href={href} className="featureLink">{linkLabel}</a>
+          <h3 className="featureTitle">{title}</h3>
+          <p className="featureDescription">{description}</p>
+          <a href={href} className="featureLink">{linkLabel}</a>
     </article>
   );
 }
@@ -103,13 +92,10 @@ function PersonaCard({ emoji, name, role, salary }) {
   );
 }
 
-// ─── Page Component ───────────────────────────────────────────────────────────
-
 function Home() {
   return (
     <div className="homePage">
 
-      {/* ── Hero ── */}
       <section className="homeHero">
         <p className="heroBadge">
           ABSA NextGen Wealth Studio
@@ -129,12 +115,12 @@ function Home() {
         </div>
       </section>
 
-      {/* ── Marathon Ticker ── */}
+
       <div className="marathonStrip" aria-hidden="true">
         <p className="marathonTicker">{tickerContent}</p>
       </div>
 
-      {/* ── Features ── */}
+  
       <section className="featuresSection">
         <p className="sectionLabel">Core Features</p>
         <h2 className="sectionTitle">
@@ -147,7 +133,7 @@ function Home() {
         </div>
       </section>
 
-      {/* ── Motivational Quote ── */}
+{/* Do I really need to motivate these people? Anyways  */}
       <blockquote className="quoteBlock">
         <p className="quoteText">
           "The best time to train your wallet for a marathon was 20 years ago.
@@ -156,7 +142,6 @@ function Home() {
         <footer className="quoteAuthor">- ABSA NextGen Wealth Studio</footer>
       </blockquote>
 
-      {/* ── Personas ── */}
       <section className="personaSection">
         <p className="sectionLabel">Built for people like</p>
         <h2 className="sectionTitle">
@@ -169,11 +154,10 @@ function Home() {
         </div>
       </section>
 
-      {/* ── Footer CTA ── */}
       <div className="homeFooterCta">
         <h2>Ready to start your marathon?</h2>
         <p>Build wealth that lasts. Pace yourself. Play the long game.</p>
-        <a href="/snapshot" className="buttonPrimary">Get started for free →</a>
+        <a href="/snapshot" className="buttonPrimary">Get started for free </a>
       </div>
 
     </div>

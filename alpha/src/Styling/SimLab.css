@@ -18,7 +18,6 @@
   --fontBody: 'DM Sans', sans-serif;
 }
 
-/* Page Shell */
 .simlabPage {
   min-height: 100vh;
   background-color: var(--colorOffwhite);
@@ -26,7 +25,7 @@
   color: var(--colorPurple);
 }
 
-/* Hero */
+
 .simlabHero {
   background: linear-gradient(135deg, var(--colorPurple) 0%, var(--colorMaroon) 100%);
   padding: 48px 48px 72px;
@@ -60,7 +59,7 @@
   font-weight: 300;
 }
 
-/* Main Content */
+
 .simlabContent {
   padding: 0 48px 48px;
   margin-top: -28px;
@@ -68,20 +67,26 @@
   z-index: 2;
 }
 
-/* Simulation Picker (2x2 card grid) */
+
+
+
+
+
+
+/* GRID */
 .simlabPickerGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
   margin-bottom: 40px;
 }
 
 .simlabPickerCard {
   background: var(--colorWhite);
-  border-radius: var(--radiusCard);
-  box-shadow: var(--shadowDefault);
+border-radius: var(--radiusCard);
+box-shadow: var(--shadowDefault);
   padding: 28px;
-  cursor: pointer;
+cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s, border-color 0.15s;
   border: 2px solid transparent;
   position: relative;
@@ -117,7 +122,7 @@
 .pickerCardTitle {
   font-family: var(--fontDisplay);
   font-size: 18px;
-  font-weight: 700;
+font-weight: 701;
   color: var(--colorPurple);
   margin: 0 0 8px;
 }
@@ -145,6 +150,14 @@
 .buttonCalculate:hover {
   background: var(--colorRed);
 }
+
+
+
+
+
+
+
+
 
 /* Active Simulation Panel */
 .simPanel {
@@ -179,7 +192,7 @@
   margin: 0;
 }
 
-/* Two columns: Variable A | Variable B */
+/* Variable A AND B */
 .simInputColumns {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -197,6 +210,9 @@
   padding-bottom: 8px;
   border-bottom: 2px solid rgba(134, 16, 40, 0.1);
 }
+
+
+
 
 /* Input rows within each column */
 .simInputGroup {
@@ -217,6 +233,7 @@
   gap: 6px;
 }
 
+
 .simInputGroup input {
   border: 1.5px solid #e8e0e8;
   border-radius: 10px;
@@ -236,7 +253,9 @@
   background: var(--colorWhite);
 }
 
-/* Info tooltip trigger — the small ⓘ button beside a label */
+
+
+/* Info trigger — the small i button beside a label */
 .infoTrigger {
   background: none;
   border: none;
@@ -252,7 +271,12 @@
   color: var(--colorMaroon);
 }
 
-/* Info tile that appears when ⓘ is clicked */
+
+
+
+
+
+/* Info tile that appears when i is clicked */
 .infoTile {
   background: rgba(134, 16, 40, 0.05);
   border-left: 3px solid var(--colorMaroon);
@@ -275,7 +299,10 @@
   text-decoration: underline;
 }
 
-/* Run button row */
+
+
+
+
 .simRunRow {
   display: flex;
   gap: 14px;
@@ -318,6 +345,15 @@
   border-color: var(--colorMaroon);
   color: var(--colorMaroon);
 }
+
+
+
+
+
+
+
+
+
 
 /* Results Section */
 .simResults {
@@ -362,6 +398,7 @@
 }
 
 .simResultLabel {
+  
   font-size: 13px;
   color: #888888;
 }
@@ -370,6 +407,7 @@
 .simVerdict {
   background: linear-gradient(135deg, var(--colorMaroon), var(--colorPurple));
   border-radius: 12px;
+  
   padding: 24px 28px;
   margin-bottom: 24px;
 }
@@ -389,7 +427,9 @@
   line-height: 1.6;
 }
 
-/* Next steps row */
+
+
+
 .simNextSteps {
   display: flex;
   gap: 12px;
@@ -397,11 +437,12 @@
 }
 
 .buttonGold {
-  background: var(--colorGold);
-  color: var(--colorWhite);
+  background: gold;
+  color:#f1f1f1;
   border: none;
   padding: 12px 24px;
   border-radius: var(--radiusPill);
+  
   font-family: var(--fontBody);
   font-weight: 600;
   font-size: 14px;
@@ -443,7 +484,7 @@
 
 .overspendNudgeText {
   font-size: 14px;
-  color: #666666;
+color: #666666;
   line-height: 1.55;
 }
 
@@ -452,7 +493,16 @@
   color: #d84315;
 }
 
-/* Responsive */
+
+
+
+
+
+
+
+
+
+/* Responsive Design*/
 @media (max-width: 768px) {
   .simlabHero    { padding: 32px 24px 56px; }
   .simlabContent { padding: 0 16px 48px; }

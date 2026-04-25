@@ -1,3 +1,5 @@
+import App from '../App.css'
+
 
 function Learn() {
   return (

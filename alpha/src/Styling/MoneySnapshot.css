@@ -63,8 +63,9 @@
 .snapHero h1 {
   font-family: var(--fontDisplay);
   font-size: clamp(26px, 4vw, 42px);
-  color: var(--colorWhite);
-  margin: 0 0 8px;
+  /* color: var(--colorWhite); */
+  color: #f1f1f1
+  /* margin: 0 0 8px; */
 }
 
 .snapHero p {
@@ -74,11 +75,18 @@
   font-weight: 300;
 }
 
-/* Input Section */
-/*
-  This card "floats" above the hero using negative top margin and z-index.
-  The z-index ensures it sits on top of the hero's decorative circle.
-*/
+
+
+
+
+
+
+
+
+
+
+
+/* fOR INPUTS */
 .snapInputSection {
   background: var(--colorWhite);
   margin: -28px 48px 32px;
@@ -113,7 +121,7 @@
 
 .inputGroup label {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 620;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #999999;
@@ -130,15 +138,32 @@
   background: var(--colorOffwhite);
   outline: none;
   transition: border-color 0.15s, background 0.15s;
+  /* transition: border-color 0.30s, background 0.30s;  //too fast */
   width: 100%;
   box-sizing: border-box;
 }
 
-.inputGroup input:focus,
-.inputGroup select:focus {
+.inputGroup input:focus,.inputGroup select:focus {
   border-color: var(--colorMaroon);
   background: var(--colorWhite);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Buttons */
 .buttonCalculate {
@@ -197,7 +222,16 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* Dashboard Wrapper */
+
+
+
+
+
+
+
+
+
+/* Dashboard image */
 .snapDashboard {
   padding: 0 48px 48px;
 }
@@ -210,7 +244,7 @@
   margin-bottom: 24px;
 }
 
-/* Circular Progress Card */
+/* Circular/Doughnut progress Card */
 .circleCard {
   background: var(--colorWhite);
   border-radius: var(--radiusCard);
@@ -231,7 +265,7 @@
   align-self: flex-start;
 }
 
-/* The SVG ring is rotated so progress fills from the top */
+/* The SVG thingy fills from the top */
 .progressRingWrapper {
   position: relative;
   width: 200px;
@@ -243,10 +277,7 @@
   transform: rotate(-90deg);
 }
 
-/*
-  The ring centre is absolutely positioned over the SVG.
-  It uses inset: 0 which is shorthand for top: 0; right: 0; bottom: 0; left: 0.
-*/
+
 .ringCenter {
   position: absolute;
   inset: 0;
@@ -284,6 +315,7 @@
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
+  /* margin-top: 16px; */
 }
 
 .legendItem {
@@ -324,6 +356,14 @@
   line-height: 1.6;
 }
 
+
+
+
+
+
+
+
+
 /* Salary Breakdown Card */
 .breakdownCard {
   background: var(--colorWhite);
@@ -362,6 +402,14 @@
 .breakdownValuePositive  { font-weight: 600; color: var(--colorGreen); }
 .breakdownValueGold      { font-weight: 700; color: var(--colorGold); font-size: 16px; }
 
+
+
+
+
+
+
+
+
 /* The highlighted total row at the bottom of the card */
 .breakdownRowHighlight {
   display: flex;
@@ -391,7 +439,18 @@
   font-weight: 600;
 }
 
-/* Secondary Grid (Tax & Goals) */
+
+
+
+
+
+
+
+
+
+
+
+/* Tax & Goals grid */
 .snapSecondaryGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -452,7 +511,15 @@
   padding-top: 16px;
 }
 
-/* Goals progress bars */
+
+
+
+
+
+
+
+
+/* Goals- progress bars */
 .goalItem {
   margin-bottom: 16px;
 }
@@ -484,7 +551,18 @@
   transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Practical Tips */
+
+
+
+
+
+
+
+
+
+
+
+/* Tips */
 .tipsSection {
   background: var(--colorWhite);
   border-radius: var(--radiusCard);
@@ -538,7 +616,7 @@
   line-height: 1.5;
 }
 
-/* CTA Strip */
+
 .snapCtaStrip {
   background: linear-gradient(135deg, var(--colorMaroon), var(--colorPurple));
   border-radius: var(--radiusCard);
@@ -547,8 +625,9 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  flex-wrap: wrap;
-}
+    flex-wrap: wrap;}
+  /* margin: 12px 0 0;
+} */
 
 .snapCtaStrip h3 {
   font-family: var(--fontDisplay);
@@ -569,12 +648,16 @@
   flex-wrap: wrap;
 }
 
-/* Nudge */
-/*
-  Fixed position so nudges float above all page content.
-  pointer-events: none on the container means the page remains
-  clickable everywhere except on the toast itself.
-*/
+
+
+
+
+
+
+
+
+
+
 .nudgeContainer {
   position: fixed;
   bottom: 28px;
@@ -634,7 +717,11 @@
   color: var(--colorMaroon);
 }
 
-/* Keyframe Animations  */
+
+
+
+
+/*Animations  */
 @keyframes nudgeIn {
   from {
     opacity: 0;
@@ -646,7 +733,16 @@
   }
 }
 
-/* Responsive */
+
+
+
+
+
+
+
+
+
+/* Responsive DESIGN*/
 @media (max-width: 768px) {
   .snapHero {
     padding: 32px 24px 56px;

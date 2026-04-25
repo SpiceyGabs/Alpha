@@ -1,63 +1,59 @@
-// Simlab.jsx
-// This file contains ONLY component structure and JavaScript logic.
-// All visual styling lives in Simlab.css
 
 import { useState } from 'react';
 import '../Styling/Simlab.css';
-
-// ─── Simulation Definitions ───────────────────────────────────────────────────
 
 const SIMULATIONS = [
   {
     id: 'costOfLiving',
     cardClass: 'simlabPickerCardCost',
-    icon: '🛒',
     title: 'Cost of Living',
-    description: 'Calculate and plan your monthly expenses, budget, and lifestyle to understand what you can truly afford.',
+    description: 'Calculate and plan your monthly expenses, budget, and lifestyle to understand what you can afford.',
   },
   {
     id: 'property',
     cardClass: 'simlabPickerCardProperty',
-    icon: '🏠',
     title: 'Rent vs Property',
-    description: 'Compare property prices and renting costs. Make an informed decision based on your income and goals.',
+    description: 'Compare property prices and renting costs. Make an informed decision based on your income and goals for where you are.',
   },
   {
     id: 'vehicle',
     cardClass: 'simlabPickerCardVehicle',
-    icon: '🚗',
     title: 'Vehicles and Personal Assets',
-    description: 'Estimate vehicle finance costs and compare them to your safe budget. Plot the real cost of your dream car.',
+       description: 'Estimate vehicle finance costs and compare them to your healthy budget.  How much does your dream car really cost? .',
   },
   {
     id: 'investments',
     cardClass: 'simlabPickerCardInvest',
     icon: '📊',
     title: 'Investment Comparison',
-    description: 'Compare gold vs USD investment returns over five years using proven financial formulas.',
+     description: 'Compare gold vs USD investment returns over five years using proven financial formulas.',
   },
 ];
 
-// Tooltip definitions - shown when the user clicks ⓘ next to an input label
+// Tooltip definitions
 const TOOLTIPS = {
-  salary:       'Your gross monthly income before any deductions. Used to determine affordability ratios.',
+  salary:   'Your gross monthly income before any deductions. Used to determine affordability ratios.',
   propertyPrice:'The full purchase price of the property you are considering buying.',
-  rent:         'The monthly rent you would pay as a tenant for a comparable property.',
-  levies:       'Rates, levies, and services are typically 10% of your rental amount for ownership costs.',
+  rent:  "The monthly rent you would pay as a tenant for a comparable property.",
+   levies:   'Rates, levies, and services are typically 10% of your rental amount for ownership costs.',
   interestRate: 'The SARB repo rate is currently 6.75%. Your loan rate (prime + margin) is typically 11.25%–12%.',
-  deposit:      'A deposit reduces the loan amount and your monthly repayment. Aim for at least 10%.',
-  loanTerm:     'Home loans in South Africa are typically 20–30 years. Shorter terms mean higher monthly payments but less interest paid overall.',
+  deposit:    'A deposit reduces the loan amount and your monthly repayment. Aim for at least 10%.',
+    loanTerm: 'Home loans in South Africa are typically 20–30 years. Shorter terms mean higher monthly payments but less interest paid overall.',
   vehiclePrice: 'The purchase price of the vehicle. Second-hand Audi RS5 range: R1.17m–R1.65m.',
   monthlyContrib:'The amount you invest each month. Consistency is more important than the starting amount.',
   years:        'Investment growth is exponential - the longer you invest, the more powerful compound growth becomes.',
 };
 
-// ─── Helper Functions ─────────────────────────────────────────────────────────
+
 
 function formatRand(amount) {
   return `R${Math.abs(Math.round(amount)).toLocaleString('en-ZA')}`;
 }
 
+
+
+
+// FORMULAE
 // Future value of a lump sum: FV = PV × (1 + r)^n
 function futureValueLumpSum(principal, annualRate, years) {
   return principal * Math.pow(1 + annualRate, years);
@@ -79,51 +75,53 @@ function monthlyBondRepayment(principal, annualRate, termYears) {
   return principal * (monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
 }
 
-// ─── Calculation Engines (one per simulation type) ────────────────────────────
-// Each function receives the form fields object and returns a results object.
+
+
+
+
+// Each function receives the form fields object and returns a results object that gets rendered later.
 
 function calculateCostOfLiving(fields) {
-  const income   = Number(fields.salary) || 0;
-  const rent     = Number(fields.rent) || 0;
-  const food     = Number(fields.food) || 0;
+  const income = Number(fields.salary) || 0;
+  const rent = Number(fields.rent) || 0;
+
+  const food = Number(fields.food) || 0;
   const transport = Number(fields.transport) || 0;
   const debtPayments = Number(fields.debtPayments) || 0;
   const entertainment = Number(fields.entertainment) || 0;
 
+
   const totalExpenses = rent + food + transport + debtPayments + entertainment;
-  const remaining     = income - totalExpenses;
-  const rentPct       = income > 0 ? (rent / income) * 100 : 0;
+  const remaining = income - totalExpenses;
+  const rentPct = income > 0 ? (rent / income) * 100 : 0;
 
   return {
-    totalExpenses,
-    remaining,
-    rentPct,
-    rentWarning: rentPct > 30,
+    totalExpenses,remaining,rentPct,
+  rentWarning: rentPct > 30,
   };
 }
 
 function calculateProperty(fields) {
-  const price        = Number(fields.propertyPrice) || 0;
-  const depositPct   = Number(fields.depositPct) || 10;
+  const price = Number(fields.propertyPrice) || 0;
+  const depositPct= Number(fields.depositPct) || 10;
   const interestRate = (Number(fields.interestRate) || 11.25) / 100;
-  const termYears    = Number(fields.loanTerm) || 20;
-  const monthlyRent  = Number(fields.rent) || 0;
-  const leviesPct    = Number(fields.leviesPct) || 10;
+  const termYears = Number(fields.loanTerm) || 20;
+  const monthlyRent= Number(fields.rent) || 0;
+  const leviesPct = Number(fields.leviesPct) || 10;
 
-  const deposit           = price * (depositPct / 100);
-  const loanAmount        = price - deposit;
-  const monthlyRepayment  = monthlyBondRepayment(loanAmount, interestRate, termYears);
-  const monthlyLevies     = monthlyRepayment * (leviesPct / 100);
-  const totalMonthlyOwn   = monthlyRepayment + monthlyLevies;
+  const deposit = price * (depositPct / 100);
+  const loanAmount = price - deposit;
+  const monthlyRepayment= monthlyBondRepayment(loanAmount, interestRate, termYears);
+  const monthlyLevies = monthlyRepayment * (leviesPct / 100);
+  const totalMonthlyOwn = monthlyRepayment + monthlyLevies;
   const totalCostOwnership = totalMonthlyOwn * termYears * 12 + deposit;
-  const totalCostRenting   = monthlyRent * termYears * 12;
-  const difference         = totalCostOwnership - totalCostRenting;
-  const rentAdvantage      = difference > 0;
+  const totalCostRenting = monthlyRent * termYears * 12;
+  const difference = totalCostOwnership - totalCostRenting;
+  const rentAdvantage  = difference > 0;
 
   return {
     deposit,
-    loanAmount,
-    monthlyRepayment,
+  loanAmount,monthlyRepayment,
     monthlyLevies,
     totalMonthlyOwn,
     totalCostOwnership,
@@ -136,20 +134,21 @@ function calculateProperty(fields) {
 }
 
 function calculateVehicle(fields) {
-  const price       = Number(fields.vehiclePrice) || 1450000;
-  const depositPct  = Number(fields.vehicleDeposit) || 10;
-  const termMonths  = Number(fields.vehicleTerm) || 60;
-  const annualRate  = (Number(fields.vehicleRate) || 12) / 100;
-  const netSalary   = Number(fields.salary) || 0;
 
-  const deposit         = price * (depositPct / 100);
-  const financeAmount   = price - deposit;
-  const monthlyRate     = annualRate / 12;
-  const monthlyPayment  = financeAmount * (monthlyRate * Math.pow(1 + monthlyRate, termMonths)) / (Math.pow(1 + monthlyRate, termMonths) - 1);
-  const safeMax         = netSalary * 0.20;
-  const isAffordable    = monthlyPayment <= safeMax;
-  const insurance       = price * 0.015 / 12;
-  const totalMonthly    = monthlyPayment + insurance;
+  const price = Number(fields.vehiclePrice) || 1450000;
+  const depositPc = Number(fields.vehicleDeposit) || 10;
+  const termMonths= Number(fields.vehicleTerm) || 60;
+  const annualRate= (Number(fields.vehicleRate) || 12) / 100;
+  const netSalary= Number(fields.salary) || 0;
+
+  const deposit  = price * (depositPct / 100);
+  const financeAmount= price - deposit;
+  const monthlyRate = annualRate / 12;
+  const monthlyPayment = financeAmount * (monthlyRate * Math.pow(1 + monthlyRate, termMonths)) / (Math.pow(1 + monthlyRate, termMonths) - 1);
+  const safeMax = netSalary * 0.20;
+  const isAffordable = monthlyPayment <= safeMax;
+  const insurance = price * 0.015 / 12;
+  const totalMonthly = monthlyPayment + insurance;
 
   return {
     deposit,
@@ -166,14 +165,17 @@ function calculateInvestments(fields) {
   const monthly   = Number(fields.monthlyContrib) || 5000;
   const years     = Number(fields.years) || 5;
 
-  // Gold: historical average annual return ~8% over 5 years
+
+  // The for gold: historical average annual return is ~8% over 5 years
   const goldRate  = 0.08;
-  // USD (as held in a USD-denominated fund): ~5.5% annual
+
+
+  // USD 
+  //  ~5.5% annually over 5 years, including currency effects
   const usdRate   = 0.055;
 
-  const goldFV = futureValueMonthly(monthly, goldRate, years);
-  const usdFV  = futureValueMonthly(monthly, usdRate, years);
-
+  const goldFV= futureValueMonthly(monthly, goldRate, years);
+  const usdFV = futureValueMonthly(monthly, usdRate, years);
   const totalContributed = monthly * years * 12;
   const goldGain = goldFV - totalContributed;
   const usdGain  = usdFV  - totalContributed;
@@ -190,7 +192,9 @@ function calculateInvestments(fields) {
   };
 }
 
-// ─── Default Field Sets per simulation ───────────────────────────────────────
+
+
+
 
 const DEFAULT_FIELDS = {
   costOfLiving: {
@@ -210,41 +214,42 @@ const DEFAULT_FIELDS = {
   },
 };
 
+
 // Input definitions per simulation: each entry describes one form field
 const SIM_INPUTS = {
   costOfLiving: {
     columnA: [
-      { key: 'salary',       label: 'Gross Monthly Salary (R)', tip: 'salary' },
-      { key: 'rent',         label: 'Monthly Rent / Bond (R)',  tip: 'rent' },
-      { key: 'food',         label: 'Food and Groceries (R)',   tip: null },
+      { key: 'salary', label: 'Gross Monthly Salary (R)', tip: 'salary' },
+      { key: 'rent',  label: 'Monthly Rent / Bond (R)',  tip: 'rent' },
+      { key: 'food',   label: 'Food and Groceries (R)',   tip: null },
     ],
     columnB: [
-      { key: 'transport',     label: 'Transport (R)',            tip: null },
-      { key: 'debtPayments',  label: 'Debt Repayments (R)',      tip: null },
-      { key: 'entertainment', label: 'Entertainment (R)',         tip: null },
+      { key: 'transport', label: 'Transport (R)',  tip: null },
+      { key: 'debtPayments',  label: 'Debt Repayments (R)', tip: null },
+      { key: 'entertainment', label: 'Entertainment (R)',  tip: null },
     ],
   },
   property: {
     columnA: [
-      { key: 'propertyPrice', label: 'Property Price (R)',      tip: 'propertyPrice' },
-      { key: 'depositPct',    label: 'Deposit (%)',              tip: 'deposit' },
-      { key: 'interestRate',  label: 'Interest Rate (%)',        tip: 'interestRate' },
-      { key: 'loanTerm',      label: 'Loan Term (years)',        tip: 'loanTerm' },
+      { key: 'propertyPrice', label: 'Property Price (R)', tip: 'propertyPrice' },
+      { key: 'depositPct', label: 'Deposit (%)', tip: 'deposit' },
+      { key: 'interestRate',label: 'Interest Rate (%)',tip: 'interestRate' },
+      { key: 'loanTerm',  label: 'Loan Term (years)',  tip: 'loanTerm' },
     ],
     columnB: [
-      { key: 'rent',     label: 'Comparable Rent / Month (R)', tip: 'rent' },
-      { key: 'leviesPct', label: 'Levies and Rates (%)',        tip: 'levies' },
+      { key: 'rent',label: 'Comparable Rent / Month (R)',tip: 'rent' },
+      { key: 'leviesPct', label: 'Levies and Rates (%)', tip: 'levies' },
     ],
   },
   vehicle: {
     columnA: [
-      { key: 'vehiclePrice',   label: 'Vehicle Price (R)',   tip: 'vehiclePrice' },
-      { key: 'vehicleDeposit', label: 'Deposit (%)',          tip: 'deposit' },
+      { key: 'vehiclePrice',label: 'Vehicle Price (R)',   tip: 'vehiclePrice' },
+      { key: 'vehicleDeposit', label: 'Deposit (%)', tip: 'deposit' },
     ],
     columnB: [
       { key: 'vehicleTerm',  label: 'Loan Term (months)',   tip: 'loanTerm' },
-      { key: 'vehicleRate',  label: 'Interest Rate (%)',     tip: 'interestRate' },
-      { key: 'salary',       label: 'Net Monthly Salary (R)', tip: 'salary' },
+      { key: 'vehicleRate',  label: 'Interest Rate (%)', tip: 'interestRate' },
+      { key: 'salary',  label: 'Net Monthly Salary (R)', tip: 'salary' },
     ],
   },
   investments: {
@@ -257,7 +262,11 @@ const SIM_INPUTS = {
   },
 };
 
-// ─── Sub-components ───────────────────────────────────────────────────────────
+
+
+
+
+
 
 function InfoTile({ text }) {
   return (
@@ -274,14 +283,14 @@ function SimInputField({ fieldKey, label, tipKey, value, onChange }) {
     <div className="simInputGroup">
       <label htmlFor={fieldKey}>
         {label}
-        {tipKey && (
+    {tipKey && (
           <button
             className="infoTrigger"
             onClick={() => setShowTip((previous) => !previous)}
             aria-label={`Info about ${label}`}
             type="button"
           >
-            ⓘ
+            🛈
           </button>
         )}
       </label>
@@ -296,7 +305,11 @@ function SimInputField({ fieldKey, label, tipKey, value, onChange }) {
   );
 }
 
-// Results panels - one component per simulation type
+
+
+// Results panels  for the simulation types
+
+
 function CostOfLivingResults({ data }) {
   return (
     <div className="simResults">
@@ -304,7 +317,8 @@ function CostOfLivingResults({ data }) {
       {data.rentWarning && (
         <div className="overspendNudge">
           <p className="overspendNudgeText">
-            ⚠️ Your rent is{' '}
+
+            ! Your rent is{' '}
             <em className="overspendNudgeHighlight">{data.rentPct.toFixed(0)}% of your income</em>.
             The recommended maximum is 30%. Consider areas with lower rental rates.
           </p>
@@ -323,7 +337,7 @@ function CostOfLivingResults({ data }) {
         </div>
       </div>
       <div className="simVerdict">
-        <p className="simVerdictTitle">💡 Verdict</p>
+        <p className="simVerdictTitle"> ? Verdict</p>
         <p className="simVerdictText">
           {data.remaining >= 5000
             ? 'You have healthy breathing room after your monthly expenses. Consider directing some of that surplus into a Strategy Track.'
@@ -368,7 +382,7 @@ function PropertyResults({ data }) {
         </div>
       </div>
       <div className="simVerdict">
-        <p className="simVerdictTitle">💡 Verdict</p>
+        <p className="simVerdictTitle"> ? Verdict</p>
         <p className="simVerdictText">
           {data.rentAdvantage
             ? `Renting saves you ${formatRand(data.difference)} over ${data.termYears} years at these numbers. However, ownership builds equity - factor in likely property appreciation before deciding.`
@@ -421,7 +435,7 @@ function VehicleResults({ data }) {
         </div>
       </div>
       <div className="simVerdict">
-        <p className="simVerdictTitle">💡 Verdict</p>
+        <p className="simVerdictTitle"> ? Verdict</p>
         <p className="simVerdictText">
           {data.isAffordable
             ? 'This vehicle fits within your safe budget. Remember to factor in fuel, maintenance, and insurance renewals annually.'
@@ -453,7 +467,7 @@ function InvestmentResults({ data }) {
         </div>
       </div>
       <div className="simVerdict">
-        <p className="simVerdictTitle">💡 Verdict</p>
+        <p className="simVerdictTitle"> ? Verdict</p>
         <p className="simVerdictText">
           {data.goldWins
             ? `Gold outperforms the USD fund by ${formatRand(data.difference)} over ${data.years} years at these rates. However, gold is more volatile - diversification across both is often the wiser approach.`
@@ -468,7 +482,9 @@ function InvestmentResults({ data }) {
   );
 }
 
-// ─── Page Component ───────────────────────────────────────────────────────────
+
+
+
 
 function Simlab() {
   const [activeSim, setActiveSim]   = useState(null);
@@ -503,7 +519,6 @@ function Simlab() {
   return (
     <div className="simlabPage">
 
-      {/* ── Hero ── */}
       <div className="snapHero">
         <p className="snapHeroLabel">Simulation Lab</p>
         <h1>Simulation Lab</h1>
@@ -514,7 +529,7 @@ function Simlab() {
 
       <div className="simlabContent">
 
-        {/* ── Simulation Picker (2x2 grid) ── */}
+  {/* The grid */}
         <div className="simlabPickerGrid">
           {SIMULATIONS.map((sim) => (
             <div
@@ -535,7 +550,10 @@ function Simlab() {
           ))}
         </div>
 
-        {/* ── Active Simulation Panel ── */}
+
+
+
+        {/* Active panel */}
         {activeSim && activeSimDef && activeInputs && (
           <div className="simPanel">
             <div className="simPanelHeader">
@@ -543,7 +561,7 @@ function Simlab() {
               <h2 className="simPanelTitle">{activeSimDef.title}</h2>
             </div>
 
-            {/* Two-column inputs */}
+            {/* Two-column inputs and results */}
             <div className="simInputColumns">
               <div>
                 <p className="simColumnTitle">Variable A</p>
@@ -582,11 +600,12 @@ function Simlab() {
               </button>
             </div>
 
-            {/* Results - rendered below the inputs once calculation runs */}
+
+{/* RESULTS:  */}
             {results && activeSim === 'costOfLiving' && <CostOfLivingResults data={results} />}
-            {results && activeSim === 'property'     && <PropertyResults     data={results} />}
-            {results && activeSim === 'vehicle'      && <VehicleResults      data={results} />}
-            {results && activeSim === 'investments'  && <InvestmentResults   data={results} />}
+            {results && activeSim === 'property' && <PropertyResults data={results} />}
+            {results && activeSim === 'vehicle'  && <VehicleResults data={results} />}
+            {results && activeSim === 'investments'  && <InvestmentResults data={results} />}
 
           </div>
         )}

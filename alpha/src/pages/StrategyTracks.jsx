@@ -6,7 +6,7 @@ const TRACKS = [
   {
     id: 'bystander',
     cardClass: 'trackCardBystander',
-    // medal: '🥉',
+    
     name: 'The Bystander',
     tagline: 'Scared to invest? All great athletes start somewhere. Explore short-term savings first.',
     roi: '2% per annum',
@@ -25,7 +25,7 @@ const TRACKS = [
   {
     id: 'pacer',
     cardClass: 'trackCardPacer',
-    // medal: '',
+   
     name: 'Steady Pacer',
     tagline: 'Balance between saving and investing, with moderate risk. Build stability over time.',
     roi: '4.1% per annum',
@@ -34,17 +34,16 @@ const TRACKS = [
     contributionRate: 0.12,
     nudge: '"You\'re on track with your savings goal - keep your pace steady."',
     milestones: [
-      { year: 'Year 1', desc: 'Build a 3-month emergency fund' },
-      { year: 'Year 2', desc: 'Reduce high-interest debt' },
+      { year: 'Year 1', desc: 'Build a 3-month emergency fund' },{ year: 'Year 2', desc: 'Reduce high-interest debt' },
       { year: 'Year 3', desc: 'Begin consistent investment contributions' },
-      { year: 'Year 4–5', desc: 'Grow a diversified savings and investment portfolio' },
+        { year: 'Year 4–5', desc: 'Grow a diversified savings and investment portfolio' },
     ],
     tradeOffs: 'Balanced risk and reward. Slower returns than aggressive strategies. Strong long-term stability.',
   },
   {
     id: 'sprinter',
     cardClass: 'trackCardSprinter',
-    // medal: '',
+   
     name: 'The Sprinter',
     tagline: 'Aggressive growth for ambitious, high-earning individuals focused on rapid wealth accumulation.',
     roi: '5% per annum',
@@ -62,30 +61,25 @@ const TRACKS = [
   },
   {
     id: 'endurance',
-    cardClass: 'trackCardEndurance',
-     //medal: '🏅',
-    name: '401K Endurance',
+    cardClass: 'trackCardEndurance',name: '401K Endurance',
     tagline: 'Long-term focus on retirement, property, and stability. Disciplined and structured.',
-    roi: '7% per annum',
-    risk: 'Low (locked)',
-    term: '30-day notice',
-    contributionRate: 0.15,
+    roi: '7% per annum',risk: 'Low (locked)',
+    term: '30-day notice',contributionRate: 0.15,
     nudge: '"Consider increasing your retirement contribution to unlock significant tax benefits."',
     milestones: [
       { year: 'Year 1–2', desc: 'Consistent retirement annuity contributions' },
-      { year: 'Year 3', desc: 'Property purchase or strong deposit readiness' },
-      { year: 'Year 4–5', desc: 'Build equity and long-term financial stability' },
+          { year: 'Year 3', desc: 'Property purchase or strong deposit readiness' },
+        { year: 'Year 4–5', desc: 'Build equity and long-term financial stability' },
     ],
     tradeOffs: 'Slower liquidity - money is tied up. Lower short-term flexibility for strong long-term asset growth.',
   },
 ];
 
 
-
+// SA CONTEXT NBBBBBBB
 function formatRand(amount) {
   return `R${Math.abs(amount).toLocaleString('en-ZA')}`;
 }
-
 
 function TrackCard({ track, isSelected, netSalary, onSelect }) {
   const monthlyContribution = netSalary > 0
@@ -157,7 +151,7 @@ function MilestoneTimeline({ milestones, currentYear }) {
   return (
     <div className="milestoneTimeline">
       {milestones.map((milestone, index) => {
-        const isActive = index < currentYear;
+             const isActive = index < currentYear;
         return (
           <div key={milestone.year} className="milestoneStep">
             <div className={`milestoneCircle ${isActive ? 'milestoneCircleActive' : ''}`}>
@@ -175,7 +169,7 @@ function MilestoneTimeline({ milestones, currentYear }) {
 }
 
 function StrategyTracks() {
-  const [netSalary, setNetSalary]         = useState('');
+   const [netSalary, setNetSalary]         = useState('');
   const [emergencyFund, setEmergencyFund] = useState('');
   const [selectedTrack, setSelectedTrack] = useState('pacer');
 
@@ -186,7 +180,8 @@ function StrategyTracks() {
   return (
     <div className="tracksPage">
 
-      {/*Hero Section/ Label and stuff*/}
+
+      {/*Hero section/ Label and stuff*/}
       <div className="tracksHero">
         <p className="tracksHeroLabel">● Strategy Tracks</p>
         <h1>Saving Plans</h1>
@@ -195,7 +190,7 @@ function StrategyTracks() {
         </p>
       </div>
 
-      <div className="tracksInputPanel">
+       <div className="tracksInputPanel">
         <p className="tracksInputLabel">📝 Your details (optional - unlocks personalised contribution amounts)</p>
         <div className="tracksInputRow">
           <div className="inputGroup">
@@ -238,6 +233,10 @@ function StrategyTracks() {
           ))}
         </div>
 
+
+
+
+
         {/* Fees transparency strip */}
         <div className="feesStrip">
           <p className="feesIcon">ℹ️</p>
@@ -249,7 +248,8 @@ function StrategyTracks() {
           </p>
         </div>
 
-        {/* Milestone timeline for selected track */}
+      
+      {/* MILESTONES SECTION - VISIBLE WHEN A TRACK IS SELECTED */}
         {activeTrack && (
           <div className="milestonesSection">
             <h3 className="milestonesTitle">
@@ -259,7 +259,6 @@ function StrategyTracks() {
           </div>
         )}
 
-        {/* CTA */}
         <div className="tracksCtaStrip">
           <div>
             <h3>Run the numbers.</h3>

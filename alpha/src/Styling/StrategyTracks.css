@@ -18,7 +18,8 @@
   --fontBody: 'DM Sans', sans-serif;
 }
 
-/* Page Shell */
+
+
 .tracksPage {
   min-height: 100vh;
   background-color: var(--colorOffwhite);
@@ -26,7 +27,6 @@
   color: var(--colorPurple);
 }
 
-/* Hero */
 .tracksHero {
   background: linear-gradient(135deg, var(--colorPurple) 0%, var(--colorMaroon) 100%);
   padding: 48px 48px 72px;
@@ -75,7 +75,19 @@
   font-weight: 300;
 }
 
-/* Input Panel */
+
+
+
+
+
+
+
+
+
+
+
+
+/* Inputs */
 .tracksInputPanel {
   background: var(--colorWhite);
   margin: -28px 48px 40px;
@@ -117,11 +129,11 @@
 }
 
 .inputGroup input {
-  border: 1.5px solid #e8e0e8;
+border: 1.5px solid #e8e0e8;
   border-radius: 10px;
   padding: 12px 14px;
   font-size: 15px;
-  font-family: var(--fontBody);
+font-family: var(--fontBody);
   color: var(--colorPurple);
   background: var(--colorOffwhite);
   outline: none;
@@ -132,7 +144,7 @@
 
 .inputGroup input:focus {
   border-color: var(--colorMaroon);
-  background: var(--colorWhite);
+  background: #f1f1f1;
 }
 
 .buttonRun {
@@ -142,9 +154,9 @@
   padding: 14px 32px;
   border-radius: var(--radiusPill);
   font-family: var(--fontBody);
-  font-size: 15px;
+font-size: 15px;
   font-weight: 600;
-  cursor: pointer;
+  /* cursor: pointer; */
   transition: background 0.18s, transform 0.18s;
 }
 
@@ -153,7 +165,18 @@
   transform: translateY(-1px);
 }
 
-/* Track Cards Grid */
+
+
+
+
+
+
+
+
+
+
+
+/* Track cards grid */
 .tracksContent {
   padding: 0 48px 48px;
 }
@@ -199,7 +222,15 @@
   box-shadow: 0 12px 36px rgba(61, 26, 58, 0.16);
 }
 
-/* Selected state — highlighted border */
+
+
+
+
+
+
+
+
+/* Selected highlighted border */
 .trackCardSelected {
   border-color: var(--colorGold);
 }
@@ -214,6 +245,7 @@
 
 .trackCardBystander::before  { background: #999999; }
 .trackCardPacer::before      { background: #4a90d9; }
+
 .trackCardSprinter::before   { background: var(--colorRed); }
 .trackCardEndurance::before  { background: var(--colorGold); }
 
@@ -222,7 +254,9 @@
   align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 12px;
+
 }
+
 
 .trackMedal {
   font-size: 28px;
@@ -232,10 +266,11 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1.5px;
+
   text-transform: uppercase;
   color: var(--colorGold);
   background: rgba(186, 136, 55, 0.12);
-  border: 1px solid rgba(186, 136, 55, 0.3);
+border: 1px solid rgba(186, 136, 55, 0.3);
   padding: 3px 10px;
   border-radius: var(--radiusPill);
 }
@@ -252,7 +287,7 @@
   font-size: 13px;
   color: #888888;
   margin: 0 0 18px;
-  line-height: 1.5;
+    line-height: 1.5;
 }
 
 /* Stats row: Term, ROI, Risk */
@@ -264,9 +299,9 @@
 }
 
 .trackStat {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+display: flex;
+flex-direction: column;
+gap: 2px;
 }
 
 .trackStatLabel {
@@ -283,7 +318,13 @@
   color: var(--colorPurple);
 }
 
-/* Contribution preview if user data is available */
+
+
+
+
+
+/* 
+User data availability */
 .trackContribution {
   background: rgba(134, 16, 40, 0.05);
   border-radius: 10px;
@@ -346,7 +387,11 @@
   flex-shrink: 0;
 }
 
-/* Nudge message on the card */
+
+
+
+
+/* message on the card */
 .trackNudge {
   background: rgba(255, 145, 77, 0.1);
   border-left: 3px solid var(--colorOrange);
@@ -358,6 +403,11 @@
   line-height: 1.5;
   font-style: italic;
 }
+
+
+
+
+
 
 /* Select track button */
 .buttonSelectTrack {
@@ -387,7 +437,15 @@
   color: var(--colorWhite);
 }
 
-/* Milestone Journey Timeline */
+
+
+
+
+
+
+
+
+/* Milestone timeline */
 .milestonesSection {
   background: var(--colorWhite);
   border-radius: var(--radiusCard);
@@ -443,6 +501,7 @@
   font-weight: 700;
   color: #bbbbbb;
   margin-bottom: 12px;
+  
   transition: background 0.3s, border-color 0.3s, color 0.3s;
 }
 
@@ -457,6 +516,7 @@
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
+ 
   color: #bbbbbb;
   margin-bottom: 4px;
 }
@@ -472,7 +532,8 @@
   padding: 0 4px;
 }
 
-/* Fees info strip */
+
+/* FEES FEES FEES */
 .feesStrip {
   background: rgba(134, 16, 40, 0.05);
   border-radius: var(--radiusCard);
@@ -499,7 +560,10 @@
   color: var(--colorMaroon);
 }
 
-/* CTA Strip */
+
+
+
+
 .tracksCtaStrip {
   background: linear-gradient(135deg, var(--colorMaroon), var(--colorPurple));
   border-radius: var(--radiusCard);
@@ -524,7 +588,10 @@
   margin: 0;
 }
 
-.ctaButtons {
+
+
+.ctaButtons     {
+
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
@@ -545,16 +612,17 @@
   display: inline-block;
 }
 
-.buttonGold:hover { opacity: 0.88; }
+.buttonGold:hover      { opacity: 0.88; }
 
 .buttonOutlineWhite {
-  background: transparent;
-  color: rgba(255, 255, 255, 0.85);
+  background:   transparent;
+  color:  rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 12px 24px;
-  border-radius: var(--radiusPill);
+  padding: 12px 24px;   
+  border-radius:  var(--radiusPill);
   font-family: var(--fontBody);
-  font-weight: 500;
+  font-weight: 500; 
+
   font-size: 14px;
   cursor: pointer;
   transition: background 0.15s;
@@ -566,7 +634,16 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* Responsive */
+
+
+
+
+
+
+
+
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .tracksHero         { padding: 32px 24px 56px; }
   .tracksInputPanel   { margin: -24px 16px 32px; padding: 20px; }

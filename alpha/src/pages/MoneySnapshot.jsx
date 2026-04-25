@@ -1,13 +1,8 @@
-// MoneySnapshot.jsx
-// This file contains ONLY component structure and JavaScript logic.
-// All visual styling lives in MoneySnapshot.css
 
 import { useState, useRef } from 'react';
 import '../Styling/MoneySnapshot.css';
 
-//  ─ Constants                                 
-
-// Maps each strategy track to its ring colour
+// Strategy track colours for consistency across components
 const TRACK_RING_COLORS = {
   'The Bystander': '#999999',
   'Steady Pacer':  '#4a90d9',
@@ -33,7 +28,7 @@ const PRACTICAL_TIPS = [
     id: 'invest',
     icon: '📈',
     title: 'Invest Early',
-    text: 'Time in the market beats timing the market - starting now is always better than waiting.',
+    text: 'Time in the market beats timing the market, starting now is always better than waiting.',
   },
   {
     id: 'rent',
@@ -116,9 +111,9 @@ function runCalculation(form) {
   };
 }
 
-//  ─ Sub-components                              ─
 
-// Circular SVG ring that shows savings as a percentage of net salary
+
+// Doughnuts 
 function SavingsRing({ savings, net, track }) {
   const radius       = 80;
   const circumference = 2 * Math.PI * radius;
@@ -129,6 +124,8 @@ function SavingsRing({ savings, net, track }) {
   return (
     <div className="progressRingWrapper">
       <svg width="200" height="200" viewBox="0 0 200 200" aria-hidden="true">
+
+
         {/* Background track */}
         <circle
           cx="100" cy="100" r={radius}
@@ -136,7 +133,8 @@ function SavingsRing({ savings, net, track }) {
           stroke="#f0eaf0"
           strokeWidth="14"
         />
-        {/* Filled arc - strokeDashoffset controls how much is filled */}
+        
+        {/* filled middle */}
         <circle
           cx="100" cy="100" r={radius}
           fill="none"
@@ -156,7 +154,8 @@ function SavingsRing({ savings, net, track }) {
   );
 }
 
-// A single row in the salary breakdown table
+
+
 function BreakdownRow({ label, value, valueClass }) {
   return (
     <div className="breakdownRow">
@@ -166,6 +165,8 @@ function BreakdownRow({ label, value, valueClass }) {
   );
 }
 
+
+
 // A single goal progress bar
 function GoalBar({ label, percentage, animating }) {
   return (
@@ -174,7 +175,8 @@ function GoalBar({ label, percentage, animating }) {
         <p>{label}</p>
         <p className="goalPercentage">{percentage.toFixed(0)}%</p>
       </div>
-      <div className="goalBar">
+
+    <div className="goalBar">
         <div
           className="goalFill"
           style={{ width: animating ? `${percentage}%` : '0%' }}
@@ -184,7 +186,8 @@ function GoalBar({ label, percentage, animating }) {
   );
 }
 
-// A floating nudge toast notification
+
+// Floating nudge notification
 function NudgeToast({ emoji, text, type, onClose }) {
   const toastClass = [
     'nudgeToast',
@@ -201,11 +204,13 @@ function NudgeToast({ emoji, text, type, onClose }) {
   );
 }
 
-//  ─ Page Component                              ─
+
+
+
 
 function MoneySnapshot() {
 
-  // form holds all the user's input values
+  // holds all the user's input values
   const [form, setForm] = useState({
     grossSalary:      70000,
     additionalIncome: 0,
@@ -217,27 +222,37 @@ function MoneySnapshot() {
     track:            'Steady Pacer',
   });
 
-  // result holds the calculated output (null until user clicks Calculate)
+
+  // result holds the calculated output (0 until user clicks calculate)
+
   const [result, setResult]     = useState(null);
   const [animating, setAnimating] = useState(false);
+
   const [nudges, setNudges]     = useState([]);
+
+
 
   // useRef keeps a counter between renders without causing re-renders
   const nudgeCounter = useRef(0);
 
   // Updates a single field in the form object when a user types
   function handleFieldChange(field, value) {
+
     setForm((previousForm) => ({ ...previousForm, [field]: value }));
+
   }
 
   // Adds a nudge toast and automatically removes it after 5.5 seconds
   function addNudge(emoji, text, type) {
     nudgeCounter.current += 1;
     const id = nudgeCounter.current;
+
     setNudges((previous) => [...previous, { id, emoji, text, type }]);
     setTimeout(() => {
+
       setNudges((previous) => previous.filter((nudge) => nudge.id !== id));
     }, 5500);
+
   }
 
   function dismissNudge(id) {
@@ -245,28 +260,31 @@ function MoneySnapshot() {
   }
 
   function handleCalculate() {
+
     const calculated = runCalculation(form);
     setResult(calculated);
     setAnimating(true);
 
-    // Trigger context-aware nudges after a short delay so the UI settles first
+
+    // Trigger context-aware nudges after a short delay so that the UI settles first...
     setTimeout(() => {
       if (calculated.rentPct > 30) {
-        addNudge('⚠️', `Your rent is ${calculated.rentPct.toFixed(0)}% of gross income. The recommended cap is 30%.`, 'warning');
+        addNudge('!', `Your rent is ${calculated.rentPct.toFixed(0)}% of gross income. The recommended cap is 30%.`, 'warning');
       }
       if (calculated.savings >= calculated.netSalary * 0.15) {
-        addNudge('🌟', 'You are saving over 15% of your net salary - you are on track!', 'great');
+        addNudge( 'You are saving over 15% of your net salary - you are on track!', 'great');
       }
       if (calculated.availableBalance < 3000) {
-        addNudge('💡', 'Your available balance is tight. Review your fixed costs to create more breathing room.', 'warning');
+        addNudge('*', 'Your available balance is tight. Review your fixed costs to create more breathing room.', 'warning');
       }
       if (calculated.availableBalance > 10000) {
-        addNudge('🏆', 'You have a healthy surplus. Consider putting some of it to work in investments.', 'info');
+        addNudge('!!', 'You have a healthy surplus. Consider putting some of it to work in investments.', 'info');
       }
     }, 600);
   }
 
-  // Goals are derived from the calculation result or use sensible defaults
+ 
+  // Where do goals come from again? The result of the calculations and they show the progress
   const goals = result
     ? [
         {
@@ -294,7 +312,7 @@ function MoneySnapshot() {
   return (
     <div className="snapshotPage">
 
-      {/*   Nudge Toasts (fixed overlay)   */}
+      
       <div className="nudgeContainer" aria-live="polite">
         {nudges.map((nudge) => (
           <NudgeToast
@@ -307,21 +325,25 @@ function MoneySnapshot() {
         ))}
       </div>
 
-      {/*   Hero   */}
+
+
       <div className="snapHero">
+
         <p className="snapHeroLabel">Money Snapshot</p>
+
         <h1>Welcome to your financial overview.</h1>
         <p>Your complete position at a glance. Enter your details below to get started.</p>
       </div>
 
-      {/*   Input Form   */}
       <div className="snapInputSection">
-        <p className="snapInputTitle">📝 Your financial details</p>
+
+        <p className="snapInputTitle">Your financial details</p>
         <div className="inputGrid">
 
           <div className="inputGroup">
             <label htmlFor="grossSalary">Gross Monthly Salary (R)</label>
             <input
+
               id="grossSalary"
               type="number"
               value={form.grossSalary}
@@ -358,13 +380,14 @@ function MoneySnapshot() {
               id="carInstalment"
               type="number"
               value={form.carInstalment}
-              onChange={(event) => handleFieldChange('carInstalment', event.target.value)}
+
+            onChange={(event) => handleFieldChange('carInstalment', event.target.value)}
               placeholder="e.g. 0"
             />
           </div>
 
           <div className="inputGroup">
-            <label htmlFor="debitOrders">Monthly Debit Orders (R)</label>
+           <label htmlFor="debitOrders">Monthly Debit Orders (R)</label>
             <input
               id="debitOrders"
               type="number"
@@ -373,6 +396,7 @@ function MoneySnapshot() {
               placeholder="e.g. 3000"
             />
           </div>
+
 
           <div className="inputGroup">
             <label htmlFor="schoolFees">School / Course Fees (R)</label>
@@ -393,6 +417,7 @@ function MoneySnapshot() {
               value={form.savingsGoal}
               onChange={(event) => handleFieldChange('savingsGoal', event.target.value)}
               placeholder="e.g. 5000"
+
             />
           </div>
 
@@ -400,30 +425,35 @@ function MoneySnapshot() {
             <label htmlFor="track">Your Strategy Track</label>
             <select
               id="track"
+
               value={form.track}
               onChange={(event) => handleFieldChange('track', event.target.value)}
             >
               {STRATEGY_TRACKS.map((trackName) => (
                 <option key={trackName} value={trackName}>{trackName}</option>
               ))}
+
             </select>
           </div>
 
         </div>
         <button className="buttonCalculate" onClick={handleCalculate}>
           Calculate my snapshot →
-        </button>
+       </button>
       </div>
 
-      {/*   Dashboard   */}
+    
       <div className="snapDashboard">
 
-        {/* Row 1: Ring + Breakdown */}
+      
         <div className="snapMainGrid">
 
-          {/* Savings Ring */}
+
+
+
+  {/* Savings Ring */}
           <div className="circleCard">
-            <p className="circleCardTitle">💰 Savings Progress</p>
+            <p className="circleCardTitle"> Savings Progress</p>
             <SavingsRing
               savings={result ? result.savings : 0}
               net={result ? result.netSalary : 1}
@@ -442,31 +472,36 @@ function MoneySnapshot() {
             {result && (
               <p className="ringBalanceNote">
                 Available balance:{' '}
+                
                 <em className="ringBalanceValue">{formatRand(result.availableBalance)}</em>
               </p>
             )}
           </div>
 
-          {/* Salary Breakdown */}
+         
+
           <div className="breakdownCard">
             <h2 className="breakdownTitle">Salary Breakdown</h2>
             {result ? (
               <>
-                <BreakdownRow label="Gross Salary"       value={formatRand(result.gross)}            valueClass="breakdownValue" />
-                <BreakdownRow label="PAYE Tax"           value={`-${formatRand(result.monthlyTax)}`} valueClass="breakdownValueNegative" />
-                <BreakdownRow label="UIF"                value={`-${formatRand(result.uif)}`}        valueClass="breakdownValueNegative" />
-                <BreakdownRow label="Pension (10%)"      value={`-${formatRand(result.pension)}`}    valueClass="breakdownValueNegative" />
-                <BreakdownRow label="Medical Aid"        value={`-${formatRand(result.medAid)}`}     valueClass="breakdownValueNegative" />
-                <BreakdownRow label="Total Deductions"   value={`-${formatRand(result.totalDeductions)}`} valueClass="breakdownValueNegative" />
-                <BreakdownRow label="Net Salary"         value={formatRand(result.netSalary)}        valueClass="breakdownValuePositive" />
-                <BreakdownRow label="Fixed Costs"        value={`-${formatRand(result.fixedCosts)}`} valueClass="breakdownValueNegative" />
-                <BreakdownRow label="Savings This Month" value={`-${formatRand(result.savings)}`}   valueClass="breakdownValueNegative" />
+                <BreakdownRow label="Gross Salary" value={formatRand(result.gross)}  valueClass="breakdownValue" />
+                <BreakdownRow label="PAYE Tax" value={`-${formatRand(result.monthlyTax)}`} valueClass="breakdownValueNegative" />
+                <BreakdownRow label="UIF"  value={`-${formatRand(result.uif)}`} valueClass="breakdownValueNegative" />
+                <BreakdownRow label="Pension (10%)"value={`-${formatRand(result.pension)}`} valueClass="breakdownValueNegative" />
+                <BreakdownRow label="Medical Aid" value={`-${formatRand(result.medAid)}`} valueClass="breakdownValueNegative" />
+                <BreakdownRow label="Total Deductions" value={`-${formatRand(result.totalDeductions)}`} valueClass="breakdownValueNegative" />
+                <BreakdownRow label="Net Salary"  value={formatRand(result.netSalary)}  valueClass="breakdownValuePositive" />
+                <BreakdownRow label="Fixed Costs" value={`-${formatRand(result.fixedCosts)}`} valueClass="breakdownValueNegative" />
+                <BreakdownRow label="Savings This Month" value={`-${formatRand(result.savings)}`} valueClass="breakdownValueNegative" />
                 <div className="breakdownRowHighlight">
                   <p className="breakdownHighlightLabel">Available Balance</p>
+
                   <p className="breakdownValueGold">{formatRand(result.availableBalance)}</p>
+
                 </div>
               </>
             ) : (
+
               <p className="breakdownEmptyState">
                 Enter your details above and click{' '}
                 <em className="breakdownEmptyHint">Calculate my snapshot</em>{' '}
@@ -477,10 +512,10 @@ function MoneySnapshot() {
 
         </div>
 
-        {/* Row 2: Tax & Goals */}
+{/*This is for Tax & Goals */}
         <div className="snapSecondaryGrid">
 
-          {/* Tax Deductions */}
+{/*Tax Deductions */}
           <div className="infoCard">
             <p className="infoCardLabel">📋 Tax and Deductions</p>
             <h3>2026/27 SARS Breakdown</h3>
@@ -488,33 +523,36 @@ function MoneySnapshot() {
               <>
                 <div className="deductionRow">
                   <p>PAYE Income Tax</p>
-                  <p className="deductionRowValue">-{formatRand(result.monthlyTax)}</p>
-                </div>
+                <p className="deductionRowValue">-{formatRand(result.monthlyTax)}</p>
+            </div>
                 <div className="deductionRow">
                   <p>UIF Contribution</p>
                   <p className="deductionRowValue">-{formatRand(result.uif)}</p>
-                </div>
+           </div>
                 <div className="deductionRow">
                   <p>Pension Fund (10%)</p>
                   <p className="deductionRowValue">-{formatRand(result.pension)}</p>
                 </div>
-                <div className="deductionRow">
+            <div className="deductionRow">
                   <p>Medical Aid</p>
                   <p className="deductionRowValue">-{formatRand(result.medAid)}</p>
-                </div>
+            </div>
                 <div className="taxNote">
                   ℹ️ Tax is estimated using the 2026/27 SARS income tax brackets
                   with a primary rebate of R17 820.
                 </div>
               </>
             ) : (
-              <p className="infoCardEmptyState">Run your calculation to see your deductions.</p>
+          <p className="infoCardEmptyState">Run your calculation to see your deductions.</p>
             )}
           </div>
 
+
+
+
           {/* Goals */}
           <div className="infoCard">
-            <p className="infoCardLabel">🎯 Your Goals</p>
+            <p className="infoCardLabel"> Your Goals</p>
             <h3>Progress Tracker</h3>
             {goals.map((goal) => (
               <GoalBar
@@ -530,7 +568,7 @@ function MoneySnapshot() {
 
         {/* Practical Tips */}
         <div className="tipsSection">
-          <p className="tipsSectionLabel">💡 Practical Tips</p>
+          <p className="tipsSectionLabel"> Practical Tips</p>
           <div className="tipsGrid">
             {PRACTICAL_TIPS.map((tip) => (
               <div key={tip.id} className="tipCard">
@@ -538,11 +576,12 @@ function MoneySnapshot() {
                 <p className="tipTitle">{tip.title}</p>
                 <p className="tipText">{tip.text}</p>
               </div>
+              
             ))}
           </div>
         </div>
 
-        {/* CTA strip */}
+        
         <div className="snapCtaStrip">
           <div>
             <h3>Ready to run your race?</h3>
