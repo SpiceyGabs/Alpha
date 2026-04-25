@@ -48,16 +48,16 @@
 
 .snapHeroLabel {
   display: inline-block;
-  background: rgba(186, 136, 55, 0.2);
+  /* background: rgba(186, 136, 55, 0.2); */
   color: var(--colorGold);
   font-size: 11px;
   letter-spacing: 2px;
-  font-weight: 700;
+  /* font-weight: 700; */
   text-transform: uppercase;
-  padding: 4px 12px;
-  border-radius: var(--radiusPill);
+  /* padding: 4px 12px; */
+  /* border-radius: var(--radiusPill); */
   margin-bottom: 16px;
-  border: 1px solid rgba(186, 136, 55, 0.3);
+  /* border: 1px solid rgba(186, 136, 55, 0.3); */
 }
 
 .snapHero h1 {

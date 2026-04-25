@@ -5,7 +5,7 @@
 import { useState, useRef } from 'react';
 import '../Styling/MoneySnapshot.css';
 
-// ─── Constants ────────────────────────────────────────────────────────────────
+//  ─ Constants                                 
 
 // Maps each strategy track to its ring colour
 const TRACK_RING_COLORS = {
@@ -49,7 +49,7 @@ const PRACTICAL_TIPS = [
   },
 ];
 
-// ─── Helper Functions ────────────────────────────────────────────────────────
+//  ─ Helper Functions                             
 // These live in the JSX file because they are used only by this component.
 // If multiple pages need the same calculation, move it to utils/taxCalc.js.
 
@@ -116,7 +116,7 @@ function runCalculation(form) {
   };
 }
 
-// ─── Sub-components ───────────────────────────────────────────────────────────
+//  ─ Sub-components                              ─
 
 // Circular SVG ring that shows savings as a percentage of net salary
 function SavingsRing({ savings, net, track }) {
@@ -201,7 +201,7 @@ function NudgeToast({ emoji, text, type, onClose }) {
   );
 }
 
-// ─── Page Component ───────────────────────────────────────────────────────────
+//  ─ Page Component                              ─
 
 function MoneySnapshot() {
 
@@ -294,7 +294,7 @@ function MoneySnapshot() {
   return (
     <div className="snapshotPage">
 
-      {/* ── Nudge Toasts (fixed overlay) ── */}
+      {/*   Nudge Toasts (fixed overlay)   */}
       <div className="nudgeContainer" aria-live="polite">
         {nudges.map((nudge) => (
           <NudgeToast
@@ -307,14 +307,14 @@ function MoneySnapshot() {
         ))}
       </div>
 
-      {/* ── Hero ── */}
+      {/*   Hero   */}
       <div className="snapHero">
-        <p className="snapHeroLabel">● Money Snapshot</p>
+        <p className="snapHeroLabel">Money Snapshot</p>
         <h1>Welcome to your financial overview.</h1>
         <p>Your complete position at a glance. Enter your details below to get started.</p>
       </div>
 
-      {/* ── Input Form ── */}
+      {/*   Input Form   */}
       <div className="snapInputSection">
         <p className="snapInputTitle">📝 Your financial details</p>
         <div className="inputGrid">
@@ -415,7 +415,7 @@ function MoneySnapshot() {
         </button>
       </div>
 
-      {/* ── Dashboard ── */}
+      {/*   Dashboard   */}
       <div className="snapDashboard">
 
         {/* Row 1: Ring + Breakdown */}

@@ -504,8 +504,8 @@ function Simlab() {
     <div className="simlabPage">
 
       {/* ── Hero ── */}
-      <div className="simlabHero">
-        <p className="simlabHeroLabel">● Simulation Lab</p>
+      <div className="snapHero">
+        <p className="snapHeroLabel">Simulation Lab</p>
         <h1>Simulation Lab</h1>
         <p className="simlabHeroSubtitle">
           Experiment with real financial decisions and make informed choices before you commit.

@@ -1,19 +1,12 @@
-// StrategyTracks.jsx
-// This file contains ONLY component structure and JavaScript logic.
-// All visual styling lives in StrategyTracks.css
 
 import { useState } from 'react';
 import '../Styling/StrategyTracks.css';
-
-// ─── Track Data ───────────────────────────────────────────────────────────────
-// Keeping track data here makes it easy to add or edit tracks without
-// touching any JSX or CSS - in a larger app this would live in data/tracks.js
 
 const TRACKS = [
   {
     id: 'bystander',
     cardClass: 'trackCardBystander',
-    medal: '🥉',
+    // medal: '🥉',
     name: 'The Bystander',
     tagline: 'Scared to invest? All great athletes start somewhere. Explore short-term savings first.',
     roi: '2% per annum',
@@ -32,7 +25,7 @@ const TRACKS = [
   {
     id: 'pacer',
     cardClass: 'trackCardPacer',
-    medal: '🥈',
+    // medal: '',
     name: 'Steady Pacer',
     tagline: 'Balance between saving and investing, with moderate risk. Build stability over time.',
     roi: '4.1% per annum',
@@ -51,7 +44,7 @@ const TRACKS = [
   {
     id: 'sprinter',
     cardClass: 'trackCardSprinter',
-    medal: '🥇',
+    // medal: '',
     name: 'The Sprinter',
     tagline: 'Aggressive growth for ambitious, high-earning individuals focused on rapid wealth accumulation.',
     roi: '5% per annum',
@@ -70,7 +63,7 @@ const TRACKS = [
   {
     id: 'endurance',
     cardClass: 'trackCardEndurance',
-    medal: '🏅',
+     //medal: '🏅',
     name: '401K Endurance',
     tagline: 'Long-term focus on retirement, property, and stability. Disciplined and structured.',
     roi: '7% per annum',
@@ -87,13 +80,12 @@ const TRACKS = [
   },
 ];
 
-// ─── Helper Functions ─────────────────────────────────────────────────────────
+
 
 function formatRand(amount) {
   return `R${Math.abs(amount).toLocaleString('en-ZA')}`;
 }
 
-// ─── Sub-components ───────────────────────────────────────────────────────────
 
 function TrackCard({ track, isSelected, netSalary, onSelect }) {
   const monthlyContribution = netSalary > 0
@@ -122,11 +114,11 @@ function TrackCard({ track, isSelected, netSalary, onSelect }) {
           <p className="trackStatValue">{track.roi}</p>
         </div>
         <div className="trackStat">
-          <p className="trackStatLabel">Risk</p>
+   <p className="trackStatLabel">Risk</p>
           <p className="trackStatValue">{track.risk}</p>
         </div>
         <div className="trackStat">
-          <p className="trackStatLabel">Term</p>
+    <p className="trackStatLabel">Term</p>
           <p className="trackStatValue">{track.term}</p>
         </div>
       </div>
@@ -134,8 +126,8 @@ function TrackCard({ track, isSelected, netSalary, onSelect }) {
       {monthlyContribution && (
         <div className="trackContribution">
           <p className="trackContributionLabel">Suggested Monthly Contribution</p>
-          <p className="trackContributionAmount">{formatRand(monthlyContribution)}</p>
-          <p className="trackContributionSub">({(track.contributionRate * 100).toFixed(0)}% of your net salary)</p>
+        <p className="trackContributionAmount">{formatRand(monthlyContribution)}</p>
+        <p className="trackContributionSub">({(track.contributionRate * 100).toFixed(0)}% of your net salary)</p>
         </div>
       )}
 
@@ -182,8 +174,6 @@ function MilestoneTimeline({ milestones, currentYear }) {
   );
 }
 
-// ─── Page Component ───────────────────────────────────────────────────────────
-
 function StrategyTracks() {
   const [netSalary, setNetSalary]         = useState('');
   const [emergencyFund, setEmergencyFund] = useState('');
@@ -196,7 +186,7 @@ function StrategyTracks() {
   return (
     <div className="tracksPage">
 
-      {/* ── Hero ── */}
+      {/*Hero Section/ Label and stuff*/}
       <div className="tracksHero">
         <p className="tracksHeroLabel">● Strategy Tracks</p>
         <h1>Saving Plans</h1>
@@ -205,7 +195,6 @@ function StrategyTracks() {
         </p>
       </div>
 
-      {/* ── Input Panel ── */}
       <div className="tracksInputPanel">
         <p className="tracksInputLabel">📝 Your details (optional - unlocks personalised contribution amounts)</p>
         <div className="tracksInputRow">
@@ -232,7 +221,7 @@ function StrategyTracks() {
         </div>
       </div>
 
-      {/* ── Track Cards ── */}
+      {/*Track cards*/}
       <div className="tracksContent">
         <p className="tracksSectionLabel">Choose your pace</p>
         <h2 className="tracksSectionTitle">Which race strategy fits you?</h2>

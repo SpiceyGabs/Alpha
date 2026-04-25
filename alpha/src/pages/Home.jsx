@@ -12,7 +12,7 @@ const featureCards = [
   {
     id: 'snapshot',
     colorClass: 'featureCardRed',
-    icon: '📊',
+    //////icon: '','','','📊',
     title: 'Money Snapshot',
     description:
       'See your complete financial position at a glance - gross income, deductions, net salary, savings progress, and monthly cash flow.',
@@ -22,7 +22,7 @@ const featureCards = [
   {
     id: 'tracks',
     colorClass: 'featureCardGold',
-    icon: '🏆',
+    //////icon: '','','','🏆',
     title: 'Strategy Tracks',
     description:
       'Choose your financial race strategy. From The Bystander to The Sprinter - structured pathways designed around your goals and risk tolerance.',
@@ -32,7 +32,7 @@ const featureCards = [
   {
     id: 'simlab',
     colorClass: 'featureCardOrange',
-    icon: '🔬',
+    //////icon: '','','','🔬',
     title: 'Simulation Lab',
     description:
       'Run real-world financial simulations. Rent vs buy, vehicle finance, investment comparisons - see the numbers before you commit.',
@@ -42,7 +42,7 @@ const featureCards = [
   {
     id: 'learn',
     colorClass: 'featureCardMaroon',
-    icon: '📖',
+    //////icon: '','','','📖',
     title: 'Learn+',
     description:
       'Your financial glossary and explainer hub. Understand every term, concept, and calculation the platform uses - in plain language.',

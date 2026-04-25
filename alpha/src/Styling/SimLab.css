@@ -46,20 +46,6 @@
   pointer-events: none;
 }
 
-.simlabHeroLabel {
-  display: inline-block;
-  background: rgba(186, 136, 55, 0.2);
-  color: var(--colorGold);
-  font-size: 11px;
-  letter-spacing: 2px;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 4px 12px;
-  border-radius: var(--radiusPill);
-  margin-bottom: 16px;
-  border: 1px solid rgba(186, 136, 55, 0.3);
-}
-
 .simlabHero h1 {
   font-family: var(--fontDisplay);
   font-size: clamp(28px, 5vw, 52px);

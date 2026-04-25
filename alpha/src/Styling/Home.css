@@ -1,7 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-/* Design Tokens */
+
 :root {
   --colorRed: #FF1A25;
   --colorMaroon: #861028;
@@ -17,7 +17,7 @@
   --fontBody: 'DM Sans', sans-serif;
 }
 
-/* Page Shell */
+
 .homePage {
   min-height: 100vh;
   background-color: var(--colorOffwhite);
@@ -26,7 +26,7 @@
   overflow-x: hidden;
 }
 
-/* Hero */
+
 .homeHero {
   background: linear-gradient(135deg, var(--colorPurple) 0%, var(--colorMaroon) 60%, #5a0a1a 100%);
   min-height: 70vh;
@@ -65,9 +65,9 @@
 .heroBadge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  /* gap: 2px; */
   /* background: rgba(186, 136, 55, 0.18); */
-  border: 1px solid rgba(186, 136, 55, 0.4);
+  /* border: 1px solid rgba(186, 136, 55, 0.4); */
   color: var(--colorGold);
   font-size: 11px;
   font-weight: 600;
@@ -75,7 +75,7 @@
   text-transform: uppercase;
   padding: 6px 14px;
   border-radius: var(--radiusPill);
-  margin-bottom: 28px;
+  margin-bottom: 10px;
   width: fit-content;
   animation: fadeSlideDown 0.7s ease both;
 }
@@ -115,7 +115,7 @@
   animation: fadeSlideDown 0.7s 0.3s ease both;
 }
 
-/* Shared Buttons */
+
 .buttonPrimary {
   background: var(--colorGold);
   color: var(--colorWhite);
@@ -158,7 +158,7 @@
   color: var(--colorWhite);
 }
 
-/* Marathon Ticker Strip */
+
 .marathonStrip {
   background: var(--colorGold);
   padding: 14px 48px;
@@ -176,7 +176,7 @@
   color: var(--colorWhite);
 }
 
-/* Features Section */
+
 .featuresSection {
   padding: 72px 48px;
   max-width: 1100px;
@@ -207,7 +207,7 @@
   gap: 24px;
 }
 
-/* Feature Cards */
+
 .featureCard {
   background: var(--colorWhite);
   border-radius: var(--radiusCard);
@@ -224,7 +224,7 @@
   box-shadow: 0 12px 36px rgba(61, 26, 58, 0.16);
 }
 
-/* Coloured top border per card */
+
 .featureCard::before {
   content: '';
   position: absolute;
@@ -287,7 +287,6 @@
   gap: 10px;
 }
 
-/* Quote Block */
 .quoteBlock {
   background: linear-gradient(135deg, var(--colorMaroon), var(--colorPurple));
   margin: 0 48px 72px;
@@ -306,7 +305,7 @@
   font-family: var(--fontDisplay);
   font-size: 200px;
   color: rgba(255, 255, 255, 0.05);
-  line-height: 1;
+  /* line-height: 1; */
   pointer-events: none;
 }
 
