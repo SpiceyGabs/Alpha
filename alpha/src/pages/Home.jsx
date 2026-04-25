@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import NextButton from './components/NextButton.jsx';
+import sidebar from './components/SideBar.jsx';
 import './App.css';
 import './index.css';
 
@@ -14,6 +15,8 @@ function Home() {
         It's designed specifically for you; a young, South African professional.
       </p>
 
+      {sidebar}
+      
       <p>
         Use the Money Snapshot to see your current position, explore Strategy Tracks to find your financial marathon pace,
         and run simulations to compare major decisions like renting vs buying.

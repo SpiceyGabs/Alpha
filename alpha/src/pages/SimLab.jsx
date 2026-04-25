@@ -1,4 +1,4 @@
-function Simlab() {
+function SimLab() {
     return (
     <div className="page">
       <h1>Simulation Lab</h1>
@@ -22,4 +22,4 @@ function Simlab() {
   );
 }
 
-export default Simlab;
+export default SimLab;
