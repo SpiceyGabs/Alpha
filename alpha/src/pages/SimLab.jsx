@@ -24,7 +24,6 @@ const SIMULATIONS = [
   {
     id: 'investments',
     cardClass: 'simlabPickerCardInvest',
-    icon: '📊',
     title: 'Investment Comparison',
      description: 'Compare gold vs USD investment returns over five years using proven financial formulas.',
   },

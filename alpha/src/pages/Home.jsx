@@ -1,11 +1,10 @@
-
 import '../Styling/Home.css';
 
 const featureCards = [
   {
     id: 'snapshot',
     colorClass: 'featureCardRed',
-    //////icon: '','','','📊',
+    //',
     title: 'Money Snapshot',
     description:
       'See your complete financial position at a glance - gross income, deductions, net salary, savings progress, and monthly cash flow.',
@@ -62,6 +61,7 @@ const personas = [
     salary: 'R66 000 pm',
   },
 ];
+
 
 // This is so that the animation loops seamlessly 
 const tickerContent =

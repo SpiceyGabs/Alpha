@@ -66,26 +66,26 @@ function calculateMonthlyTax(grossMonthly) {
   else if (annualGross <= 1817000) annualTax = 251258 + (annualGross - 857900) * 0.41;
   else                              annualTax = 644489 + (annualGross - 1817000) * 0.45;
 
-  // Subtract the 2026/27 primary rebate of R17 820
+  // Subtract the 2026/27 primary rebate of R17 820 according to SARS' rules
   annualTax = Math.max(0, annualTax - 17820);
   return Math.round(annualTax / 12);
 }
 
-// Runs the full snapshot calculation and returns a result object
+// Runs the full  calculation and returns a result object
 function runCalculation(form) {
   const gross      = Number(form.grossSalary);
   const additional = Number(form.additionalIncome);
 
   const monthlyTax = calculateMonthlyTax(gross);
 
-  // UIF: 1% of gross, capped at the ceiling income of R17 712 pm
+  // UIF: 1% of gross
   const uifCeiling = 17712;
   const uif        = Math.round(Math.min(gross, uifCeiling) * 0.01);
 
-  // Pension: standard employer / employee contribution of 10%
+  // Pension: 10%
   const pension = Math.round(gross * 0.1);
 
-  // Medical Aid: fixed default
+  // Medical Ai
   const medAid = 3500;
 
   const totalDeductions = monthlyTax + uif + pension + medAid;
@@ -576,7 +576,7 @@ function MoneySnapshot() {
                 <p className="tipTitle">{tip.title}</p>
                 <p className="tipText">{tip.text}</p>
               </div>
-              
+
             ))}
           </div>
         </div>

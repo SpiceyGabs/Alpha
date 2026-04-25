@@ -1,4 +1,4 @@
-import App from '../App.css'
+// import App from '../App.css'
 
 
 function Learn() {
