@@ -65,7 +65,7 @@ const personas = [
 
 // This is so that the animation loops seamlessly 
 const tickerContent =
-  '🏃 Start your financial marathon · Build wealth over time · Your first five years matter so pace yourself for life · '.repeat(6);
+  'Start your financial marathon · Build wealth over time · Your first five years matter so pace yourself for life · '.repeat(6);
 
 
 function FeatureCard({ colorClass, icon, title, description, linkLabel, href }) {

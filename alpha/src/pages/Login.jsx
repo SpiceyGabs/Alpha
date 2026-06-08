@@ -1,4 +1,4 @@
-import { useReference } from "react";
+import { useState, useEffect,useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";  
 import "../Styling/Login.css";
@@ -8,7 +8,7 @@ const PWD_REGEX = /^.{6,}$/;
 const NAME_REGEX = /^.{2,}$/;
 
 
-function login() {
+function Login() {
   const {login,register} = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -95,7 +95,7 @@ function login() {
     <div className="loginPage">
       <div className="loginCard">
         <h1 className="loginTitle">ABSA</h1>
-        <p className="loginSubtitle">NextGen Wealth Studio</p>
+        <p className="loginSubtitle"> Welcome to the NextGen Wealth Studio</p>
 
         <div className="loginToggle">
           <button
@@ -221,4 +221,4 @@ function login() {
 
 
 
-  export default Login
+  export default Login; 

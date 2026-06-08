@@ -1,10 +1,9 @@
 import './App.css'
-import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { useContext } from 'react';
 import { UserContext } from './context/UserContext';
 import { Navigate } from 'react-router-dom';
-
-// import Login from './pages/Login'
+import Login from './pages/Login'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import MoneySnapshot from './pages/MoneySnapshot'
@@ -21,13 +20,12 @@ function ProtectedRoute({ children }) {
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="app">
+  <div className="app">
         <Navbar />
       <main>
         <Routes>
-          {/* <Route path="/login" element={<Login />} /> */}
-          <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute >} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute >} />
           <Route path="/money" element={<ProtectedRoute><MoneySnapshot /></ProtectedRoute >} />
           <Route path="/simlab" element={<ProtectedRoute><SimLab /></ProtectedRoute >} />
           <Route path="/tracks" element={<ProtectedRoute><StrategyTracks /></ProtectedRoute >} />
@@ -35,8 +33,7 @@ function App() {
         </Routes>
       </main>
     </div>
-    </BrowserRouter>
   )
 }
 
-export default { App, UserContext};
+export default App;
