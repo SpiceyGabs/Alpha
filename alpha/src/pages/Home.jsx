@@ -128,11 +128,12 @@ function Home() {
         <h2 className="sectionTitle">
           South African professionals navigating their first five years.
         </h2>
-        <div className="personaScroll">
+        {/* <div className="personaScroll">
           {personas.map((person) => (
             <PersonaCard key={person.id} {...person} />
           ))}
-        </div>
+        </div> */}
+        
       </section>
 
       <div className="homeFooterCta">
