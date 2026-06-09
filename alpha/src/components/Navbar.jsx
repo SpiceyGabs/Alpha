@@ -1,17 +1,22 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import '../Styling/Navbar.css'
 
 function Navbar() {
+  const location = useLocation();
+  if (location.pathname === "/login") {
+  return null;
+}
+
   return (
     <nav className="navbar">
-     {/* <div className="navBrand">
+     <div className="navBrand">
       <NavLink to="/" className="navLogoLink">
           <div className="navLogo">
             <span className="navLogoText">ABSA</span>
           </div>
           <span className="navBrandLabel">NextGen Wealth Studio</span>
         </NavLink>
-      </div> */}
+      </div>
 
       <ul className="navMenu">
         <li><NavLink to="/" className={({ isActive }) => isActive ? 'navLinkActive' : 'navLink'}

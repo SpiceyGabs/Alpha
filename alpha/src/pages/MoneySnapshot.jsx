@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Nudge from '../components/Nudge';
 import { useState, useRef } from 'react';
 import '../Styling/MoneySnapshot.css';

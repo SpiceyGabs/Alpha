@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 import { useState } from 'react';
 import '../Styling/Simlab.css';
 
@@ -135,7 +135,7 @@ function calculateProperty(fields) {
 function calculateVehicle(fields) {
 
   const price = Number(fields.vehiclePrice) || 1450000;
-  const depositPc = Number(fields.vehicleDeposit) || 10;
+  const depositPct = Number(fields.vehicleDeposit) || 10;
   const termMonths= Number(fields.vehicleTerm) || 60;
   const annualRate= (Number(fields.vehicleRate) || 12) / 100;
   const netSalary= Number(fields.salary) || 0;

@@ -173,8 +173,8 @@ function Learn() {
           <div className="tipsGrid">
             <Nudge type="tip" title="Emergency Fund First" message="Before investing, build 3-6 months of expenses in an accessible savings account. This prevents debt when unexpected costs arise." dismissible={false} />
             <Nudge type="tip" title="Start Small, Start Now" message="Even R500/month invested at 8% becomes R360,000 after 20 years. Time matters more than amount." dismissible={false} />
-            <Nudge type="tip" title="Review Subscriptions" message="The average South African spends R1,200+ monthly on streaming, gym, and app subscriptions - that's R14,400/year you could invest." dismissible={false} />
-            <Nudge type="tip" title="Negotiate Your Salary" message="A 10% raise early in your career compounds enormously. Always negotiate - the worst they can say is no." dismissible={false} />
+            <Nudge type="tip" title="Review Subscriptions" message="The average South African spends R1 200+ monthly on streaming, gym, and app subscriptions - that's R14 400/year you could invest." dismissible={false} />
+            <Nudge type="tip" title="Negotiate Your Salary" message="A 10% raise early in your career compounds enormously. Always negotiate- the worst they can say is no." dismissible={false} />
           </div>
         </section>
       </div>

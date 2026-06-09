@@ -3,8 +3,11 @@ import { createContext, useState, useContext } from 'react';
 const UserContext = createContext(null);
 
  function UserProvider({ children }) {
-  const [user, setUser] = useState(null);
-  const [salary, setSalary] = useState(null);        // monthly net salary
+  const [user, setUser] = useState (() => {
+  const stored = localStorage.getItem('alphaUser');
+  return stored ? JSON.parse(stored) : null;
+});
+  const [salary, setSalary] = useState(null);        
   const [selectedTrack, setSelectedTrack] = useState(null)
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 

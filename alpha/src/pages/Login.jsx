@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState, useEffect, useRef, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
@@ -278,15 +279,6 @@ function Login() {
             </span>
           </p>
         )}
-
-        {!isRegistering && (
-          <div className="dashboardLink">
-            <Link to="/" className="dashboardBtn">
-              Go to Dashboard
-            </Link>
-          </div>
-        )}
-
       </div>
     </div>
   );

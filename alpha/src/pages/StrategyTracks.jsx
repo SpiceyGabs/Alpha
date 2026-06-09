@@ -1,4 +1,4 @@
-
+// import { Link } from "react-router-dom";
 import { useState } from 'react';
 import '../Styling/StrategyTracks.css';
 
@@ -61,10 +61,13 @@ const TRACKS = [
   },
   {
     id: 'endurance',
-    cardClass: 'trackCardEndurance',name: '401K Endurance',
+    cardClass: 'trackCardEndurance',
+    name: '401K Endurance',
     tagline: 'Long-term focus on retirement, property, and stability. Disciplined and structured.',
-    roi: '7% per annum',risk: 'Low (locked)',
-    term: '30-day notice',contributionRate: 0.15,
+    roi: '7% per annum',
+    risk: 'Low (locked)',
+    term: '30-day notice',
+    contributionRate: 0.15,
     nudge: '"Consider increasing your retirement contribution to unlock significant tax benefits."',
     milestones: [
       { year: 'Year 1–2', desc: 'Consistent retirement annuity contributions' },
@@ -76,7 +79,6 @@ const TRACKS = [
 ];
 
 
-// SA CONTEXT NBBBBBBB
 function formatRand(amount) {
   return `R${Math.abs(amount).toLocaleString('en-ZA')}`;
 }
