@@ -1,17 +1,20 @@
 import { createContext, useState, useContext } from 'react';
 
-const UserContext = createContext();
+const UserContext = createContext(null);
 
  function UserProvider({ children }) {
   const [user, setUser] = useState(null);
   const [salary, setSalary] = useState(null);        // monthly net salary
-  const [selectedTrack, setSelectedTrack] = useState(null);
+  const [selectedTrack, setSelectedTrack] = useState(null)
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   function register({ name, email, password }) {
     const newUser = { name, email, password };
     localStorage.setItem('alphaUser', JSON.stringify(newUser));
     setUser(newUser);
   }
+
+  
 
  function login({ email, password }) {
     const stored = localStorage.getItem('alphaUser');
@@ -38,6 +41,8 @@ const UserContext = createContext();
     setSalary,
     selectedTrack,
     setSelectedTrack,
+    isAuthenticated,
+    setIsAuthenticated,
   };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

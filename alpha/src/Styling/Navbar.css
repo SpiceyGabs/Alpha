@@ -1,14 +1,26 @@
+navMenu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
 
 .navbar {
-  background: linear-gradient(135deg, #861028, #3D1A3A);
-  padding: 16px 28px;
+  display: flex;
+  /* background: linear-gradient(135deg, #861028, #3D1A3A); */
+  padding: 0 16px 0 28px;
+  justify-content: space-between;
+  width: var(--navwidth);
+  min-height: 100vh;
+  position: fixed; 
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
   position: sticky;
   top: 0;
+  left:0;
   z-index: 1000;
+  
 }
-
-
 
 .navbar ul {
   list-style: none;
@@ -19,16 +31,11 @@
   justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
-
-
 }
-
 
 .navbar li {
   margin: 0;
 }
-
-
 
 .navbar a {
   display: inline-block;
@@ -61,6 +68,45 @@
 
 .navbar li:last-child a:hover {
   background: #d49a3f;
+}
+
+.navBrand {
+  display: flex;
+  align-items: center;
+}
+
+.navLogoLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.navLogoLink:hover {
+  opacity: 0.9;
+}
+
+.navLogo {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #c8102e 0%, #8b0015 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navLogoText {
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.navBrandLabel {
+  color: #e4e8f1;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 /* Responsive Design &  For phones */

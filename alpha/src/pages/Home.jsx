@@ -1,10 +1,10 @@
+import { Link } from 'react-router-dom';
 import '../Styling/Home.css';
 
 const featureCards = [
   {
     id: 'snapshot',
     colorClass: 'featureCardRed',
-    //',
     title: 'Money Snapshot',
     description:
       'See your complete financial position at a glance - gross income, deductions, net salary, savings progress, and monthly cash flow.',
@@ -29,49 +29,33 @@ const featureCards = [
     linkLabel: 'Run a simulation →',
     href: '/simlab',
   },
-  {
-    id: 'learn',
-    colorClass: 'featureCardMaroon',
-    title: 'Learn+',
-    description:
-      'Your financial glossary and explainer hub. Understand every term, concept, and calculation the platform uses in plain language. Coming soon!',
-    linkLabel: 'Start learning →',
-    href: '/learn',
-  },
 ];
+//     These were explemplar personas used to populate the alpha version of the home page. 
+// const personas = [
+//   {
+//     id: 'vanessa',
+//     name: 'Vanessa Gumede',
+//     role: 'Logistics Officer · Durban',
+//     salary: 'R38 000 pm',
 
-const personas = [
-  {
-    id: 'vanessa',
-    name: 'Vanessa Gumede',
-    role: 'Logistics Officer · Durban',
-    salary: 'R38 000 pm',
+//   },
+//   {
+//     id: 'shakira',
+//     name: 'Shakira Moosraf',
+//     role: 'General Practitioner · Johannesburg',
+//     salary: 'R70 000 pm',
+//   },
+//   {
+//     id: 'mpilo',
+//     name: 'Mpilo Dlamini',
+//     role: 'Actuary · Midrand',
+//     salary: 'R66 000 pm',
+//   },
+// ];
 
-  },
-  {
-    id: 'shakira',
-    name: 'Shakira Moosraf',
-    role: 'General Practitioner · Johannesburg',
-    salary: 'R70 000 pm',
-  },
-  {
-    id: 'mpilo',
-    name: 'Mpilo Dlamini',
-    role: 'Actuary · Midrand',
-    salary: 'R66 000 pm',
-  },
-];
-
-
-// This is so that the animation loops seamlessly 
-const tickerContent =
-  'Start your financial marathon · Build wealth over time · Your first five years matter so pace yourself for life · '.repeat(6);
-
-
-function FeatureCard({ colorClass, icon, title, description, linkLabel, href }) {
+function FeatureCard({ colorClass,title, description, linkLabel, href }) {
   return (
     <article className={`featureCard ${colorClass}`}>
-      <div className="featureIcon">{icon}</div>
           <h3 className="featureTitle">{title}</h3>
           <p className="featureDescription">{description}</p>
           <a href={href} className="featureLink">{linkLabel}</a>
@@ -79,10 +63,9 @@ function FeatureCard({ colorClass, icon, title, description, linkLabel, href }) 
   );
 }
 
-function PersonaCard({ emoji, name, role, salary }) {
+function PersonaCard({ name, role, salary }) {
   return (
-    <div className="personaCard">
-      <div className="personaAvatar">{emoji}</div>
+    <div className="personaCard"> 
       <p className="personaName">{name}</p>
       <p className="personaRole">{role}</p>
       <p className="personaSalaryBadge">{salary}</p>
@@ -99,28 +82,29 @@ function Home() {
           ABSA NextGen Wealth Studio
         </p>
         <h1 className="heroTitle">
-          Your first five years of{' '}
-          <em className="heroTitleAccent">financial independence</em>.
+          Your first years of wealth-building, visualised and planned.
         </h1>
+
         <p className="heroSubtitle">
           A life planner and financial simulator built for young South African
           professionals. Visualise, plan, and simulate your wealth-building
-          journey - paced like a marathon, not a sprint.
+          journey- paced like a marathon, not a sprint.
         </p>
+
         <div className="heroButtons">
-          <a href="/snapshot" className="buttonPrimary">Get started →</a>
+          <a href="/snapshot" className="buttonPrimary">Get started</a>
           <a href="/tracks" className="buttonGhost">Explore tracks</a>
         </div>
       </section>
 
 
       <div className="marathonStrip" aria-hidden="true">
-        <p className="marathonTicker">{tickerContent}</p>
+        <p className="marathonLabel">Pace your financial marathon</p>
       </div>
 
   
       <section className="featuresSection">
-        <p className="sectionLabel">Core Features</p>
+        <p className="sectionLabel"> Marathon 101</p>
         <h2 className="sectionTitle">
           Everything you need to run your financial race.
         </h2>
@@ -131,13 +115,12 @@ function Home() {
         </div>
       </section>
 
-{/* Do I really need to motivate these people? Anyways  */}
       <blockquote className="quoteBlock">
         <p className="quoteText">
           "The best time to train your wallet for a marathon was 20 years ago.
           The next best time is now."
         </p>
-        <footer className="quoteAuthor">- ABSA NextGen Wealth Studio</footer>
+        <footer className="quoteAuthor"> -ABSA NextGen Wealth Studio- </footer>
       </blockquote>
 
       <section className="personaSection">
@@ -157,8 +140,7 @@ function Home() {
         <p>Build wealth that lasts. Pace yourself. Play the long game.</p>
         <a href="/snapshot" className="buttonPrimary">Get started for free </a>
       </div>
-
-    </div>
+   </div>
   );
 }
 

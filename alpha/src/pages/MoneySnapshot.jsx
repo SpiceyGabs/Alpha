@@ -1,4 +1,4 @@
-
+import Nudge from '../components/Nudge';
 import { useState, useRef } from 'react';
 import '../Styling/MoneySnapshot.css';
 
@@ -44,11 +44,11 @@ const PRACTICAL_TIPS = [
   },
 ];
 
-//  ─ Helper Functions                             
+//  Helper Functions                             
 // These live in the JSX file because they are used only by this component.
 // If multiple pages need the same calculation, move it to utils/taxCalc.js.
 
-// Formats a number as a South African Rand amount, e.g. 12000 → "R12 000"
+// Formats a number as a South African Rand amount, e.g. 12000 - "R12 000"
 function formatRand(amount) {
   return `R${Math.abs(amount).toLocaleString('en-ZA')}`;
 }
