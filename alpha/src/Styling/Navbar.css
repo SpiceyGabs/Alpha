@@ -1,23 +1,68 @@
+.main-content {
+  padding-top: 70px;
+}
+
 navMenu {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 8px;
   margin: 0;
   padding: 0;
+  align-items: center;
+}
+
+.navLink {
+  display: inline-block;
+  text-decoration: none;
+  color: #861028;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 8px 16px;
+  border-radius: 14px;
+  transition: all 0.25s ease;
+  letter-spacing: 0.2px;
+}
+
+.navLink:hover {
+  background: rgba(134, 16, 40, 0.08);
+  color: #ba8837;
+  transform: translateY(-2px);
+}
+
+.navLinkActive {
+  display: inline-block;
+  text-decoration: none;
+  background: #FF1A25;
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 8px 16px;
+  border-radius: 14px;
+  transition: all 0.25s ease;
+  letter-spacing: 0.2px;
+}
+
+.navLinkActive:hover {
+  background: #ba8837;
+  color: white;
+  transform: translateY(-2px);
 }
 
 .navbar {
   display: flex;
-  /* background: linear-gradient(135deg, #861028, #3D1A3A); */
-  padding: 0 16px 0 28px;
+  background: #f3f7f0;
+  align-items: center;
+  padding: 0 32px;
+  height: 70px; 
   justify-content: space-between;
   width: var(--navwidth);
   min-height: 100vh;
   position: fixed; 
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-  position: sticky;
+  position: fixed;
   top: 0;
   left:0;
+  right: 0;
   z-index: 1000;
   
 }
@@ -25,22 +70,23 @@ navMenu {
 .navbar ul {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 1rem ;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: right;
   gap: 12px;
   flex-wrap: wrap;
 }
 
 .navbar li {
   margin: 0;
+ 
 }
 
 .navbar a {
   display: inline-block;
   text-decoration: none;
-  color: #F3F7F0;
+  color: #861028;
   font-weight: 600;
   font-size: 0.95rem;
   padding: 12px 18px;
@@ -51,13 +97,13 @@ navMenu {
 
 .navbar a:hover {
   background: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
+  color: #ba8837;
   transform: translateY(-2px);
 }
 
 .navbar a:focus,.navbar a:active {
   background: #FF1A25;
-  color: white;
+  color: rgb(60, 57, 57);
   outline: none;
 }
 
@@ -68,11 +114,6 @@ navMenu {
 
 .navbar li:last-child a:hover {
   background: #d49a3f;
-}
-
-.navBrand {
-  display: flex;
-  align-items: center;
 }
 
 .navLogoLink {
@@ -98,7 +139,7 @@ navMenu {
 }
 
 .navLogoText {
-  color: white;
+  color: #861028;
   font-weight: 700;
   font-size: 18px;
 }
