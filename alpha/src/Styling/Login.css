@@ -1,11 +1,32 @@
+.loginHeader {
+  text-align: center;
+  margin-bottom: 1rem;
+}
 
-.loginPage {
+.loginTitle {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: #8B2332;
+  margin-bottom: 0.25rem;
+}
+
+.loginSubtitle {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.loginPage, .loginContainer {
+  background-color:  linear-gradient( 
+    #f7f3ef 10%,
+    #efe4dd 50%,
+    #861028 100%); 
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-bg);  
+  
 }
+
 
 .loginCard {
   background: var(--color-surface);
@@ -46,20 +67,19 @@
   flex: 1;
   padding: 0.6rem;
   background: transparent;
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
-  color: var(--color-text-muted);
+  color: #3d1a3a;
   font-size: 0.9rem;
   transition: background 0.2s, color 0.2s;
 }
 
 .loginToggle button.toggleActive {
   background: var(--color-primary);
-  color: #f2d5d5;
+  color: #3d1a3a;
   font-weight: 600;
 }
 
-/* input grouping */
 .inputGroup {
   display: flex;
   flex-direction: column;
@@ -86,7 +106,7 @@
 }
 
 .loginInput:focus {
-  border-color: var(--color-primary);
+  border-color: #ba8837;
 }
 
 .loginInput.inputValid {
@@ -97,7 +117,6 @@
   border-color: #e74c3c;
 }
 
-/* checkmark / x indicator */
 .inputIndicator {
   position: absolute;
   right: 0.85rem;
@@ -114,7 +133,6 @@
   color: #e74c3c;
 }
 
-/* hint text under input */
 .inputHint {
   font-size: 0.78rem;
   color: var(--color-text-muted);
@@ -130,7 +148,7 @@
 
 .loginSubmit {
   padding: 0.8rem;
-  background: var(--color-primary);
+  background: #ba8837;
   color: #f3f7f0;
   border: none;
   border-radius: 8px;

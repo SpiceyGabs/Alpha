@@ -1,5 +1,7 @@
 import { NavLink, useLocation } from 'react-router-dom'
 import '../Styling/Navbar.css'
+import { useContext } from 'react';
+import { UserContext } from '../context/UserContext';
 
 function Navbar() {
   const location = useLocation();
@@ -7,6 +9,8 @@ function Navbar() {
   return null;
 }
 
+const { logout } = useContext(UserContext);
+      
   return (
     <nav className="navbar">
      <div className="navBrand">
@@ -29,6 +33,7 @@ function Navbar() {
             >Strategy Tracks</NavLink></li>
         <li><NavLink to="/learn" className={({ isActive }) => isActive ? 'navLinkActive' : 'navLink'}
             >Learn+</NavLink></li>
+        <li><button className="navLink" onClick={logout}>Logout</button></li>
       </ul>
     </nav>
   )

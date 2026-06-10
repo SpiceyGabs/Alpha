@@ -576,8 +576,8 @@ function MoneySnapshot() {
             <p>Explore strategy tracks or simulate major financial decisions.</p>
           </div>
           <div className="ctaButtons">
-            <a href="/tracks" className="buttonGold">Explore Strategy Tracks →</a>
-            <a href="/simlab" className="buttonOutlineWhite">Run a Simulation</a>
+                <Link to="/tracks" className="buttonGold"> Explore Strategy Tracks </Link>
+                <Link to="/simlab" className="buttonOutlineWhite" > Run a Simulation </Link>
           </div>
         </div>
 

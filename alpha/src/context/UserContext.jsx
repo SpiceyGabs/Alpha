@@ -10,7 +10,7 @@ const UserContext = createContext(null);
   const [salary, setSalary] = useState(null);        
   const [selectedTrack, setSelectedTrack] = useState(null)
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
+  
   function register({ name, email, password }) {
     const newUser = { name, email, password };
     localStorage.setItem('alphaUser', JSON.stringify(newUser));

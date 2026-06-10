@@ -111,6 +111,19 @@ function Login() {
       </span>
     );
   }
+    <div className="loginIntro">
+        <h2>Your Financial Future Starts Here.</h2>
+
+        
+        <p>Explore your salary breakdown, compare financial strategies, and simulate major life decisions
+        using South African financial data.</p>
+
+  <ul>
+    <li>✓ Personal Money Snapshot</li>
+    <li>✓ Savings strategies & Recommendations</li>
+    <li>✓ Property & Investment Simulators</li>
+  </ul>
+</div>
 
   return (
     <div className="loginPage">
@@ -138,7 +151,7 @@ function Login() {
 
         {registered && !isRegistering && (
           <div className="successBanner">
-            Account created! You can now log in below.
+            Account created! Log in below.
           </div>
         )}
 
@@ -274,7 +287,7 @@ function Login() {
           <p className="loginFooter">
             Don't have an account?{" "}
             <span className="loginLink" onClick={() => setIsRegistering(true)}>
-              Register here
+                    Register now
             </span>
           </p>
         )}

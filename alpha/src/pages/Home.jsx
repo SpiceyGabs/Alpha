@@ -1,5 +1,8 @@
 // import { Link } from 'react-router-dom';
 import '../Styling/Home.css';
+import { useContext } from 'react';
+import { UserContext } from '../context/UserContext';
+
 
 const featureCards = [
   {
@@ -74,16 +77,19 @@ function PersonaCard({ name, role, salary }) {
 }
 
 function Home() {
+
+  const {user} = useContext(UserContext);
+
   return (
     <div className="homePage">
 
       <section className="homeHero">
-        <p className="heroBadge">
-          ABSA NextGen Wealth Studio
-        </p>
-        <h1 className="heroTitle">
-          Your first years of wealth-building, visualised and planned.
+        <h1 className="heroBadge">
+         Welcome back, {user?.name ? ` ${user.name}` : ' Investor'}
         </h1>
+        <p className="heroTitle">
+          Your first years of wealth-building, visualised and planned.</p>
+        <p> Your journey continues today.</p>
 
         <p className="heroSubtitle">
           A life planner and financial simulator built for young South African
