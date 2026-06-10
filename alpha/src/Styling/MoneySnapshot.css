@@ -30,6 +30,7 @@
 .snapHero {
   background: linear-gradient(135deg, var(--colorPurple) 0%, var(--colorMaroon) 100%);
   padding: 48px 48px 72px;
+  padding-top: 2rem;
   position: relative;
   overflow: hidden;
 }
@@ -477,11 +478,6 @@
   font-size: 14px;
   padding-top: 16px;
 }
-
-
-
-
-
 
 
 

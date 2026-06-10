@@ -574,9 +574,6 @@ function MoneySnapshot() {
   )}
 </div>
 
-
-
-
           {/* Goals */}
           <div className="infoCard">
             <p className="infoCardLabel"> Your Goals</p>
@@ -599,11 +596,9 @@ function MoneySnapshot() {
           <div className="tipsGrid">
             {PRACTICAL_TIPS.map((tip) => (
               <div key={tip.id} className="tipCard">
-                <p className="tipIcon">{tip.icon}</p>
                 <p className="tipTitle">{tip.title}</p>
                 <p className="tipText">{tip.text}</p>
               </div>
-
             ))}
           </div>
         </div>

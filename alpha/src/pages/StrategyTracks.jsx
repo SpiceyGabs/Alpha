@@ -185,7 +185,6 @@ function StrategyTracks() {
 
       {/*Hero section/ Label and stuff*/}
       <div className="tracksHero">
-        <p className="tracksHeroLabel">● Strategy Tracks</p>
         <h1>Saving Plans</h1>
         <p className="tracksHeroQuote">
           "The best time to train your wallet for a marathon was 20 years ago. The next best time is now."
@@ -193,7 +192,7 @@ function StrategyTracks() {
       </div>
 
        <div className="tracksInputPanel">
-        <p className="tracksInputLabel">📝 Your details (optional - unlocks personalised contribution amounts)</p>
+        <p className="tracksInputLabel"> *Your details (optional - unlocks personalised contribution amounts)</p>
         <div className="tracksInputRow">
           <div className="inputGroup">
             <label htmlFor="netSalary">Net Monthly Salary (R)</label>
@@ -235,13 +234,9 @@ function StrategyTracks() {
           ))}
         </div>
 
-
-
-
-
         {/* Fees transparency strip */}
         <div className="feesStrip">
-          <p className="feesIcon">ℹ️</p>
+          <p className="feesIcon">ⓘ</p>
           <p className="feesText">
             All tracks carry a management fee of{' '}
             <em className="feesHighlight">0.5% of your monthly contribution</em>.
@@ -251,7 +246,6 @@ function StrategyTracks() {
         </div>
 
       
-      {/* MILESTONES SECTION - VISIBLE WHEN A TRACK IS SELECTED */}
         {activeTrack && (
           <div className="milestonesSection">
             <h3 className="milestonesTitle">

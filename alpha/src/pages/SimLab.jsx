@@ -191,10 +191,6 @@ function calculateInvestments(fields) {
   };
 }
 
-
-
-
-
 const DEFAULT_FIELDS = {
   costOfLiving: {
     salary: 43300, rent: 12000, food: 3500,
@@ -262,11 +258,6 @@ const SIM_INPUTS = {
 };
 
 
-
-
-
-
-
 function InfoTile({ text }) {
   return (
     <div className="infoTile">
@@ -303,11 +294,6 @@ function SimInputField({ fieldKey, label, tipKey, value, onChange }) {
     </div>
   );
 }
-
-
-
-// Results panels  for the simulation types
-
 
 function CostOfLivingResults({ data }) {
   return (
@@ -403,7 +389,7 @@ function VehicleResults({ data }) {
       {!data.isAffordable && (
         <div className="overspendNudge">
           <p className="overspendNudgeText">
-            ⚠️ Your estimated monthly payment of{' '}
+            ⚠︎ Your estimated monthly payment of{' '}
             <em className="overspendNudgeHighlight">{formatRand(data.monthlyPayment)}</em>{' '}
             exceeds the safe 20% budget of{' '}
             <em className="overspendNudgeHighlight">{formatRand(data.safeMax)}</em>.
@@ -482,9 +468,6 @@ function InvestmentResults({ data }) {
 }
 
 
-
-
-
 function Simlab() {
   const [activeSim, setActiveSim]   = useState(null);
   const [fields, setFields]         = useState({});
@@ -548,8 +531,6 @@ function Simlab() {
             </div>
           ))}
         </div>
-
-
 
 
         {/* Active panel */}

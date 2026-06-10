@@ -227,7 +227,7 @@ function Learn() {
       <Nudge
         type="tip"
         title="Emergency Fund First"
-        message="Build 3–6 months of expenses before taking on significant investment risk."
+        message="Build 3 to 6 months of expenses before taking on significant investment risk."
         dismissible={false}
       />
 
