@@ -62,8 +62,10 @@ function calculateMonthlyTax(grossMonthly) {
 }
 
 function runCalculation(form) {
-  const gross      = Number(form.grossSalary);
-  const additional = Number(form.additionalIncome);
+  
+
+  const gross      = Number(form.grossSalary) || 0;
+  const additional = Number(form.additionalIncome) || 0;
 
   const monthlyTax = calculateMonthlyTax(gross);
 
@@ -80,14 +82,10 @@ function runCalculation(form) {
   const totalDeductions = monthlyTax + uif + pension + medAid;
   const netSalary       = gross - totalDeductions + additional;
 
-  const fixedCosts = (
-    Number(form.rent) +
-    Number(form.carInstalment) +
-    Number(form.debitOrders) +
-    Number(form.schoolFees)
-  );
+  const fixedCosts =(Number(form.rent) || 0) +(Number(form.carInstalment) || 0) +(Number(form.debitOrders) || 0) +(Number(form.schoolFees) || 0);
 
-  const savings         = Number(form.savingsGoal);
+  const savings = Number(form.savingsGoal) || 0;
+  const emergencyMonths = fixedCosts > 0 ? (savings * 3) / fixedCosts: 0;
   const availableBalance = netSalary - fixedCosts - savings;
   const rentPct         = gross > 0 ? (Number(form.rent) / gross) * 100 : 0;
     
@@ -99,13 +97,6 @@ const savingsRate =
   netSalary > 0? (savings / netSalary) * 100 : 0;
 
 const disposableIncome = availableBalance;
-
-return {
-  ...
-  debtToIncome,
-  savingsRate,
-  disposableIncome
-};
 
   return {
     gross, 
@@ -123,7 +114,8 @@ return {
 
     savingsRate, 
     debtToIncome, 
-    disposableIncome
+    disposableIncome,
+    emergencyMonths
   };
 }
 
@@ -168,7 +160,6 @@ function SavingsRing({ savings, net, track }) {
     </div>
   );
 }
-
 
 
 function BreakdownRow({ label, value, valueClass }) {
@@ -459,8 +450,6 @@ function MoneySnapshot() {
         <div className="snapMainGrid">
 
 
-
-
   {/* Savings Ring */}
           <div className="circleCard">
             <p className="circleCardTitle"> Savings Progress</p>
@@ -527,7 +516,7 @@ function MoneySnapshot() {
 
 {/*Tax Deductions */}
           <div className="infoCard">
-            <p className="infoCardLabel">📋 Tax and Deductions</p>
+            <p className="infoCardLabel"> Tax and Deductions</p>
             <h3>2026/27 SARS Breakdown</h3>
             {result ? (
               <>
@@ -577,6 +566,10 @@ function MoneySnapshot() {
         <h3>Disposable Income</h3>
            {formatRand(result.disposableIncome)}   
       </div>
+      <div className="metricRow">
+          <h3>Emergency Fund</h3>
+          {result.emergencyMonths.toFixed(1)} months of expenses
+        </div>
     </>
   )}
 </div>
