@@ -90,13 +90,24 @@ function runCalculation(form) {
   const savings         = Number(form.savingsGoal);
   const availableBalance = netSalary - fixedCosts - savings;
   const rentPct         = gross > 0 ? (Number(form.rent) / gross) * 100 : 0;
+    const savingsRate =
+  netSalary > 0
+    ? ((savings / netSalary) * 100)
+    : 0;
+
+const debtToIncome =
+  gross > 0
+    ? ((fixedCosts / gross) * 100)
+    : 0;
+
+const disposableIncome = availableBalance;
 
   return {
     gross, additional,
     monthlyTax, uif, pension, medAid,
     totalDeductions, netSalary,
     fixedCosts, savings, availableBalance,
-    rentPct,
+    rentPct, savingsRate, debtToIncome, disposableIncome
   };
 }
 
@@ -526,7 +537,7 @@ function MoneySnapshot() {
                   <p className="deductionRowValue">-{formatRand(result.medAid)}</p>
             </div>
                 <div className="taxNote">
-                  ℹ️ Tax is estimated using the 2026/27 SARS income tax brackets
+                  ℹ Tax is estimated using the 2026/27 SARS income tax brackets
                   with a primary rebate of R17 820.
                 </div>
               </>
@@ -534,6 +545,28 @@ function MoneySnapshot() {
           <p className="infoCardEmptyState">Run your calculation to see your deductions.</p>
             )}
           </div>
+          <div className="infoCard">
+  <p className="infoCardLabel">Key Metrics</p>
+
+  {result && (
+    <>
+      <div className="metricRow">
+        <span>Savings Rate</span>
+        <strong>{result.savingsRate.toFixed(1)}%</strong>
+      </div>
+
+      <div className="metricRow">
+        <span>Debt-to-Income</span>
+        <strong>{result.debtToIncome.toFixed(1)}%</strong>
+      </div>
+
+      <div className="metricRow">
+        <span>Disposable Income</span>
+        <strong>{formatRand(result.disposableIncome)}</strong>
+      </div>
+    </>
+  )}
+</div>
 
 
 

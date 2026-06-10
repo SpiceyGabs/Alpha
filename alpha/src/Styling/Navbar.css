@@ -1,8 +1,9 @@
+
 .main-content {
   padding-top: 70px;
 }
 
-navMenu {
+.navMenu {
   display: flex;
   list-style: none;
   gap: 8px;
@@ -32,7 +33,7 @@ navMenu {
 .navLinkActive {
   display: inline-block;
   text-decoration: none;
-  background: #FF1A25;
+  background: #861028;
   color: white;
   font-weight: 600;
   font-size: 0.95rem;
@@ -95,15 +96,15 @@ navMenu {
 }
 
 .navbar a:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background:#f1f1f1;
   color: #ba8837;
   transform: translateY(-2px);
 }
 
 .navbar a:focus,.navbar a:active {
-  background: #FF1A25;
-  color: rgb(60, 57, 57);
-  outline: none;
+  background: #c8102e;
+  color: #f1f1f1;
+  outline: #f1f1f1;
 }
 
 .navbar li:last-child a {
@@ -116,11 +117,9 @@ navMenu {
 }
 
 .navLogoLink {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
+  .navLogoLink {
+  flex-shrink: 0;
+}
 }
 
 .navLogoLink:hover {
@@ -128,10 +127,11 @@ navMenu {
 }
 
 .navLogo {
-  width: 40px;
+  width: 55px;
   height: 40px;
-  background: linear-gradient(135deg, #c8102e 0%, #8b0015 100%);
   border-radius: 8px;
+  border: 2px solid #861028;
+  background: #f3f7f0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,9 +144,9 @@ navMenu {
 }
 
 .navBrandLabel {
-  color: #e4e8f1;
-  font-weight: 500;
-  font-size: 14px;
+  color: #861028;
+  font-size: 13px;
+  white-space: nowrap;
 }
 
 /* Responsive Design &  For phones */

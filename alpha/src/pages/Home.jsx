@@ -89,12 +89,12 @@ function Home() {
         </h1>
         <p className="heroTitle">
           Your first years of wealth-building, visualised and planned.</p>
-        <p> Your journey continues today.</p>
+        <p className="heroBadge"> Your journey continues today.</p>
 
         <p className="heroSubtitle">
           A life planner and financial simulator built for young South African
           professionals. Visualise, plan, and simulate your wealth-building
-          journey- paced like a marathon, not a sprint.
+          journey that's paced like a marathon, not a sprint.
         </p>
 
         <div className="heroButtons">
