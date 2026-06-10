@@ -1,7 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-
 :root {
   --colorRed: #FF1A25;
   --colorMaroon: #861028;
@@ -166,8 +165,6 @@
 
 .marathonTicker {
   display: inline-block;
-  /* animation: ticker 18s linear infinite; */
-  font-size: 12px;
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -235,7 +232,6 @@
 .featureCardRed::before    { background: var(--colorRed); }
 .featureCardGold::before   { background: var(--colorGold); }
 .featureCardOrange::before { background: var(--colorOrange); }
-.featureCardMaroon::before { background: var(--colorMaroon); }
 
 .featureIcon {
   width: 48px;
@@ -251,7 +247,6 @@
 .featureCardRed    .featureIcon { background: rgba(255, 26, 37, 0.1); }
 .featureCardGold   .featureIcon { background: rgba(186, 136, 55, 0.12); }
 .featureCardOrange .featureIcon { background: rgba(255, 145, 77, 0.12); }
-.featureCardMaroon .featureIcon { background: rgba(134, 16, 40, 0.1); }
 
 .featureTitle {
   font-family: var(--fontDisplay);
@@ -303,7 +298,6 @@
   font-family: var(--fontDisplay);
   font-size: 200px;
   color: rgba(255, 255, 255, 0.05);
-  /* line-height: 1; */
   pointer-events: none;
 }
 
@@ -324,86 +318,21 @@
   text-transform: uppercase;
 }
 
-/* Persona Strip */
-.personaSection {
-  padding: 0 48px 72px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.personaScroll {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  padding-bottom: 8px;
-  scrollbar-width: none;
-}
-
-.personaScroll::-webkit-scrollbar {
-  display: none;
-}
-
-.personaCard {
-  min-width: 220px;
-  background: var(--colorWhite);
-  border-radius: var(--radiusCard);
-  padding: 24px;
-  box-shadow: var(--shadowDefault);
-  flex-shrink: 0;
-}
-
-.personaAvatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--colorMaroon), var(--colorPurple));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  margin-bottom: 14px;
-}
-
-.personaName {
-  font-weight: 700;
-  font-size: 15px;
-  color: var(--colorPurple);
-  margin: 0 0 4px;
-}
-
-.personaRole {
-  font-size: 12px;
-  color: #999999;
-  margin: 0 0 12px;
-}
-
-.personaSalaryBadge {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--colorMaroon);
-  background: rgba(134, 16, 40, 0.08);
-  padding: 4px 10px;
-  border-radius: var(--radiusPill);
-  display: inline-block;
-}
-
 .homeFooterCta {
   text-align: center;
-  padding: 64px 48px;
+  padding: 10px 40px;
   background: var(--colorOffwhite);
-  border-top: 1px solid rgba(61, 26, 58, 0.08);
+  border-top: 1px solid grey;
 }
 
 .homeFooterCta h2 {
   font-family: var(--fontDisplay);
   font-size: 32px;
   color: var(--colorPurple);
-  margin: 0 0 12px;
 }
 
 .homeFooterCta p {
   color: #777777;
-  margin: 0 0 32px;
   font-size: 16px;
 }
 

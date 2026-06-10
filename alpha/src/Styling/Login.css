@@ -1,6 +1,8 @@
-.loginHeader {
+.loginHeader, .loginFooter {
   text-align: center;
   margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  color: #861028;
 }
 
 .loginTitle {
@@ -67,9 +69,10 @@
   flex: 1;
   padding: 0.6rem;
   background: transparent;
-  border: 1px solid transparent;
+  border: 1px solid #ba8837;
   cursor: pointer;
   color: #3d1a3a;
+  
   font-size: 0.9rem;
   transition: background 0.2s, color 0.2s;
 }

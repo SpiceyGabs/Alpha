@@ -1,28 +1,30 @@
 .learnPage {
   min-height: 100vh;
   padding-bottom: 3rem;
+  background: #f7f3ef;
+  color: #3d1a3a;
 }
 
 .learnContent {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-}
-
-.learnSection {
-  margin-bottom: 4rem;
+  font-family: var(--font-body);
 }
 
 .learnSection h2 {
+    font-family: var(--font-heading);
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #ba8837;
+  color: #861028;
 }
 
 .sectionIntro {
   margin-bottom: 2rem;
-  line-height: 1.6;
+  line-height: 1.7;
   opacity: 0.85;
+  color: #5c4b58;
+
 }
 
 .conceptsGrid,
@@ -35,35 +37,36 @@
 .expandableCard {
   border-radius: 16px;
   overflow: hidden;
+  background: white;
+  border: 1px solid #3d1a3a;
+  box-shadow: 0 4px 12px #d3d3d3;
+}
+
+.expandableCardHeader {
+  background: white;
+  color: #3d1a3a;
+}
+
+.expandableCardTitle h3 {
+  color: #861028;
 }
 
 .expandableCardContent {
   padding: 1.5rem;
-  color: floralwhite;
-  background: #3d1a3a;
-}
-
-
-.callout {
-  margin-top: 1rem;
-  padding: 1rem;
-  border-left: 4px solid #ba8837;
-  border-radius: 8px;
-  background: rgba(186, 135, 55, 0.08);
-}
-
-.callout strong {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: #ba8837;
+  background: white; 
+  color : #3d1a3a;
 }
 
 
 .taxBrackets {
   margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-top: 1rem;
 }
 
 .taxBrackets h4 {
+   color: #861028;
   margin-bottom: 0.75rem;
 }
 
@@ -131,6 +134,7 @@
 }
 
 .glossaryItem {
+  background: white;
   padding: 1rem;
   border-radius: 12px;
   border-left: 4px solid #ba8837;
@@ -141,8 +145,23 @@
   margin-bottom: 0.5rem;
 }
 
+.glossaryItem p {
+  color: #3d1a3a;
+  line-height: 1.5;
+}
 
+.tipCard, .nudge-tip {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 12px;
+  color: black; 
+  border: 1px solid rgba(134,16,40,0.1);
+}
 
+.nudgeMessage {
+  color: #3d1a3a;
+  
+}
 .tipsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

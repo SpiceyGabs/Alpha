@@ -130,15 +130,10 @@ function Home() {
       </blockquote>
 
       <section className="personaSection">
-        <p className="sectionLabel">Built for people like</p>
+        <p className="sectionLabel">Built for people like you...</p>
         <h2 className="sectionTitle">
-          South African professionals navigating their first five years.
+          Young, South African professionals navigating their first five years of high earningfinancial independence.
         </h2>
-        {/* <div className="personaScroll">
-          {personas.map((person) => (
-            <PersonaCard key={person.id} {...person} />
-          ))}
-        </div> */}
         
       </section>
 
