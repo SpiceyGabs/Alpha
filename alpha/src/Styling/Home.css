@@ -183,6 +183,7 @@
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
+  padding-left: 50px;
   color: var(--colorMaroon);
   margin-bottom: 12px;
 }
@@ -193,6 +194,7 @@
   font-weight: 700;
   color: var(--colorPurple);
   margin: 0 0 48px;
+  padding-left: 50px; 
   line-height: 1.2;
 }
 
