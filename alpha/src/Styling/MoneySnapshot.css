@@ -76,20 +76,10 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-/* fOR INPUTS */
 .snapInputSection {
-  background: var(--colorWhite);
+  background: rgb(228, 228, 228);
   margin: -28px 48px 32px;
+  color: var(--colorPurple);
   border-radius: var(--radiusCard);
   box-shadow: var(--shadowDefault);
   padding: 32px;
@@ -100,9 +90,10 @@
 .snapInputTitle {
   font-size: 13px;
   font-weight: 700;
+  background: linear-gradient(90deg, var(--colorGold), var(--colorOrange));
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--colorMaroon);
+  color: white;
   margin-bottom: 20px;
 }
 
@@ -151,21 +142,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Buttons */
 .buttonCalculate {
   background: var(--colorMaroon);
   color: var(--colorWhite);
@@ -442,15 +418,6 @@
 
 
 
-
-
-
-
-
-
-
-
-/* Tax & Goals grid */
 .snapSecondaryGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -735,14 +702,6 @@
 
 
 
-
-
-
-
-
-
-
-/* Responsive DESIGN*/
 @media (max-width: 768px) {
   .snapHero {
     padding: 32px 24px 56px;

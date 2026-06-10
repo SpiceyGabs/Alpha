@@ -164,9 +164,6 @@ function BreakdownRow({ label, value, valueClass }) {
   );
 }
 
-
-
-// A single goal progress bar
 function GoalBar({ label, percentage, animating }) {
   return (
     <div className="goalItem">
@@ -186,8 +183,7 @@ function GoalBar({ label, percentage, animating }) {
 }
 
 
-// Floating nudge notification
-function NudgeToast({ emoji, text, type, onClose }) {
+function NudgeToast({ text, type, onClose }) {
   const toastClass = [
     'nudgeToast',
     type === 'warning' ? 'nudgeToastWarning' : '',
@@ -196,7 +192,6 @@ function NudgeToast({ emoji, text, type, onClose }) {
 
   return (
     <div className={toastClass} role="alert">
-      <p className="nudgeEmoji">{emoji}</p>
       <p className="nudgeText">{text}</p>
       <button className="nudgeClose" onClick={onClose} aria-label="Dismiss">✕</button>
     </div>
