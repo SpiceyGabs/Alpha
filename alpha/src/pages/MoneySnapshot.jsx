@@ -74,7 +74,7 @@ function runCalculation(form) {
   // Pension: 10%
   const pension = Math.round(gross * 0.1);
 
-  // Medical Ai
+  // Medical Aid
   const medAid = 3500;
 
   const totalDeductions = monthlyTax + uif + pension + medAid;
@@ -90,24 +90,40 @@ function runCalculation(form) {
   const savings         = Number(form.savingsGoal);
   const availableBalance = netSalary - fixedCosts - savings;
   const rentPct         = gross > 0 ? (Number(form.rent) / gross) * 100 : 0;
-    const savingsRate =
-  netSalary > 0
-    ? ((savings / netSalary) * 100)
-    : 0;
-
+    
 const debtToIncome =
   gross > 0
-    ? ((fixedCosts / gross) * 100)
-    : 0;
+       ? ((Number(form.carInstalment)+ Number(form.schoolFees)+ Number(form.debitOrders))/ gross) * 100: 0;
+
+const savingsRate =
+  netSalary > 0? (savings / netSalary) * 100 : 0;
 
 const disposableIncome = availableBalance;
 
+return {
+  ...
+  debtToIncome,
+  savingsRate,
+  disposableIncome
+};
+
   return {
-    gross, additional,
-    monthlyTax, uif, pension, medAid,
-    totalDeductions, netSalary,
-    fixedCosts, savings, availableBalance,
-    rentPct, savingsRate, debtToIncome, disposableIncome
+    gross, 
+    additional,
+    monthlyTax, 
+    uif, 
+    pension, 
+    medAid,
+    totalDeductions, 
+    netSalary,
+    fixedCosts, 
+    savings, 
+    availableBalance,
+    rentPct, 
+
+    savingsRate, 
+    debtToIncome, 
+    disposableIncome
   };
 }
 
@@ -540,24 +556,26 @@ function MoneySnapshot() {
           <p className="infoCardEmptyState">Run your calculation to see your deductions.</p>
             )}
           </div>
+
+
           <div className="infoCard">
-  <p className="infoCardLabel">Key Metrics</p>
+            <p className="infoCardLabel">Savings, Debt & Income</p>
 
-  {result && (
-    <>
-      <div className="metricRow">
-        <span>Savings Rate</span>
-        <strong>{result.savingsRate.toFixed(1)}%</strong>
+        {result && (
+            <>
+          <div className="metricRow">
+        <h3>Savings Rate</h3>
+           {result.savingsRate.toFixed(1)}%   
       </div>
 
       <div className="metricRow">
-        <span>Debt-to-Income</span>
-        <strong>{result.debtToIncome.toFixed(1)}%</strong>
+        <h3>Debt-to-Income</h3>
+        {result && result.debtToIncome !== undefined ? result.debtToIncome.toFixed(1): "0.0"}
       </div>
 
       <div className="metricRow">
-        <span>Disposable Income</span>
-        <strong>{formatRand(result.disposableIncome)}</strong>
+        <h3>Disposable Income</h3>
+           {formatRand(result.disposableIncome)}   
       </div>
     </>
   )}

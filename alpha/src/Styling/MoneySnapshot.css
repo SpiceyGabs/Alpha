@@ -520,7 +520,12 @@
 
 
 
-
+.metricRow {
+  display:flex;
+  justify-content:space-between;
+  padding:12px 0;
+  border-bottom:1px solid #ececec;
+}
 
 
 
@@ -593,8 +598,7 @@
   justify-content: space-between;
   gap: 24px;
     flex-wrap: wrap;}
-  /* margin: 12px 0 0;
-} */
+ 
 
 .snapCtaStrip h3 {
   font-family: var(--fontDisplay);

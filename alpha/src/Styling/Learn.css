@@ -34,14 +34,6 @@
   gap: 1rem;
 }
 
-.expandableCard {
-  border-radius: 16px;
-  overflow: hidden;
-  background: white;
-  border: 1px solid #3d1a3a;
-  box-shadow: 0 4px 12px #d3d3d3;
-}
-
 .expandableCardHeader {
   background: white;
   color: #3d1a3a;
