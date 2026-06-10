@@ -1,60 +1,50 @@
 import { Link } from "react-router-dom";
 import Nudge from '../components/Nudge';
+import ExpandableCard from '../components/ExpandableCard';
 import { useState, useRef } from 'react';
 import '../Styling/MoneySnapshot.css';
 
-// Strategy track colours for consistency across components
 const TRACK_RING_COLORS = {
   'The Bystander': '#999999',
   'Steady Pacer':  '#4a90d9',
   'The Sprinter':  '#FF1A25',
-  '401K Endurance': '#BA8837',
+  'The Endurance Runner': '#BA8837',
 };
 
 const STRATEGY_TRACKS = [
   'The Bystander',
   'Steady Pacer',
   'The Sprinter',
-  '401K Endurance',
+  'The Endurance Runner',
 ];
 
 const PRACTICAL_TIPS = [
   {
     id: 'emergency',
-    icon: '🏦',
     title: 'Emergency Buffer',
     text: 'Keep 3–6 months of essential expenses in an immediately accessible account.',
   },
   {
     id: 'invest',
-    icon: '📈',
     title: 'Invest Early',
     text: 'Time in the market beats timing the market, starting now is always better than waiting.',
   },
   {
     id: 'rent',
-    icon: '🎯',
     title: '30% Rent Rule',
     text: 'Aim to spend no more than 30% of your gross monthly income on rent or a bond.',
   },
   {
     id: 'debt',
-    icon: '💳',
     title: 'Clear Debt First',
     text: 'High-interest debt erodes wealth faster than most savings products can grow it.',
   },
 ];
 
-//  Helper Functions                             
-// These live in the JSX file because they are used only by this component.
-// If multiple pages need the same calculation, move it to utils/taxCalc.js.
-
-// Formats a number as a South African Rand amount, e.g. 12000 - "R12 000"
 function formatRand(amount) {
   return `R${Math.abs(amount).toLocaleString('en-ZA')}`;
 }
 
-// Calculates estimated monthly PAYE using 2026/27 SARS brackets
 function calculateMonthlyTax(grossMonthly) {
   const annualGross = grossMonthly * 12;
   let annualTax = 0;
@@ -65,14 +55,12 @@ function calculateMonthlyTax(grossMonthly) {
   else if (annualGross <= 673000)  annualTax = 121475 + (annualGross - 512800) * 0.36;
   else if (annualGross <= 857900)  annualTax = 179147 + (annualGross - 673000) * 0.39;
   else if (annualGross <= 1817000) annualTax = 251258 + (annualGross - 857900) * 0.41;
-  else                              annualTax = 644489 + (annualGross - 1817000) * 0.45;
+  else annualTax = 644489 + (annualGross - 1817000) * 0.45;
 
-  // Subtract the 2026/27 primary rebate of R17 820 according to SARS' rules
   annualTax = Math.max(0, annualTax - 17820);
   return Math.round(annualTax / 12);
 }
 
-// Runs the full  calculation and returns a result object
 function runCalculation(form) {
   const gross      = Number(form.grossSalary);
   const additional = Number(form.additionalIncome);
@@ -111,7 +99,6 @@ function runCalculation(form) {
     rentPct,
   };
 }
-
 
 
 // Doughnuts 

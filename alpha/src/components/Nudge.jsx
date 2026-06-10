@@ -28,7 +28,7 @@ function Nudge({ type = 'info', title, message, onDismiss, dismissible = true })
       </div>
       {dismissible && (
         <button className="nudgeDismiss" onClick={handleDismiss} aria-label="Dismiss">
-          ✕
+       ✕
         </button>
       )}
     </div>

@@ -1,0 +1,70 @@
+.expandableCard {
+  background: linear-gradient(135deg, #1a1f2e 0%, #141824 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(186, 135, 55, 0.2);
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.expandableCardHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #e4e8f1;
+  transition: background 0.2s ease;
+}
+
+.expandableCardHeader:hover {
+  background: rgba(186, 135, 55, 0.1);
+}
+
+.expandableCardTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.expandableIcon {
+  font-size: 24px;
+}
+
+.expandableCardTitle h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #c3e88d;
+}
+
+.expandableArrow {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+  color: #ba8837;
+}
+
+.expandableArrow.expanded {
+  transform: rotate(180deg);
+}
+
+.expandableCardContent {
+  padding: 0 24px 24px 24px;
+  border-top: 1px solid rgba(186, 135, 55, 0.2);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

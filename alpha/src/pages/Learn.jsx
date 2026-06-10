@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Nudge from '../components/Nudge';
-// import { TAX_EXPLANATIONS, TRACK_EXPLANATIONS, SIMULATION_EXPLANATIONS } from '../utils/financialCalculations';
+import ExpandableCard from '../components/ExpandableCard';
 import '../Styling/Learn.css';
 
 function Learn() {
@@ -29,157 +29,234 @@ function Learn() {
         </p>
       </div>
 
-      <div className="learnContent">
-        <section className="learnSection">
-          <h2> Key Financial Concepts</h2>
-          <p className="sectionIntro">
-            Understanding these concepts will help you make better financial decisions throughout your journey.
-          </p>
+        <div className="learnContent">
 
-          <div className="conceptsGrid">
-            <ExpandableCard title="Income Tax (PAYE)" >
-              <p>{TAX_EXPLANATIONS.paye.content}</p>
-              <Callout label="EXAMPLE">
-                <p>{TAX_EXPLANATIONS.paye.example}</p>
-              </Callout>
-              <div className="taxBrackets">
-                <h4>2024/25 SARS Tax Brackets:</h4>
-                <ul>
-                  <li>R0 - R237,100: 18%</li>
-                  <li>R237,101 - R370,500: 26%</li>
-                  <li>R370,501 - R512,800: 31%</li>
-                  <li>R512,801 - R673,000: 36%</li>
-                  <li>R673,001 - R857,900: 39%</li>
-                  <li>R857,901 - R1,817,000: 41%</li>
-                  <li>R1,817,001+: 45%</li>
-                </ul>
-                <Callout label="PRO TIP">
-                  <p>Primary rebate is R17,235 for 2024/25 - you pay no tax on the first R95,750 of annual income.</p>
-                </Callout>
-              </div>
-            </ExpandableCard>
+  <section className="learnSection">
+    <h2>Key Financial Concepts</h2>
 
-            <ExpandableCard title="UIF & Deductions">
-              <p>{TAX_EXPLANATIONS.uif.content}</p>
-              <Callout label="PRO TIP">
-                <p>{TAX_EXPLANATIONS.uif.example}</p>
-              </Callout>
-            </ExpandableCard>
+    <div className="conceptsGrid">
 
-            <ExpandableCard title="Pension vs RA" >
-              <p>{TAX_EXPLANATIONS.pension.content}</p>
-              <div className="comparisonBox">
-                <div className="comparisonItem">
-                  <h4>Work Pension</h4>
-                  <p>Employer-sponsored, often with matching contributions. Access at retirement from that employer.</p>
-                </div>
-                <div className="comparisonItem">
-                  <h4>Retirement Annuity (RA)</h4>
-                  <p>Personal retirement vehicle. Portable between jobs, flexible contributions, tax-deductible.</p>
-                </div>
-              </div>
-            </ExpandableCard>
-
-            <ExpandableCard title="Tax-Free Savings Account">
-              <p>{TAX_EXPLANATIONS.tfsa.content}</p>
-              <Callout label="POWER OF TAX-FREE">
-                <p>{TAX_EXPLANATIONS.tfsa.example}</p>
-              </Callout>
-            </ExpandableCard>
-
-            <ExpandableCard title="Compound Interest" >
-              <p>{SIMULATION_EXPLANATIONS.investmentGrowth.content}</p>
-              <Callout label="REALITY CHECK">
-                <p>{SIMULATION_EXPLANATIONS.investmentGrowth.saContext}</p>
-              </Callout>
-            </ExpandableCard>
-          </div>
-        </section>
-
-       
-   <section className="learnSection">
-      <h2> Strategy Tracks Explained</h2>
-        <p className="sectionIntro">
-         Each track matches different financial goals, risk tolerance, and time horizons.
+      <ExpandableCard title="Income Tax (PAYE)">
+        <p>
+          PAYE (Pay-As-You-Earn) is the income tax deducted from your salary before it reaches your bank account. Employers collect this tax on behalf of SARS, meaning most employees pay tax automatically every month.
         </p>
 
-  <div className="strategyGrid">
-    {Object.entries(TRACK_EXPLANATIONS).map(([key, track]) => (
-      <div key={key} className="strategyCard">
-        <h3>{key === 'bystander' ? 'The Bystander' : 
-             key === 'steadyPacer' ? 'Steady Pacer' :
-             key === 'sprinter' ? 'The Sprinter' : '401K Endurance'}</h3>
-          <p className="strategySummary">{track.summary}</p>
-          <div className="strategyStats">
-            <div> Risk:{track.riskLevel}</div>
-            <div>  \Time:   {track.timeHorizon}</div>
-                  <div>  \Returns:   {track.returns}</div>
-      </div>
-          <p>  \Best for:   {track.bestFor}</p>
-           <Callout label="TRADE-OFF"><p>{track.tradeoffs}</p></Callout>
-      </div>
-   ))}
-  </div>
-  
-   </section>
-
-        <section className="learnSection">
-          <h2> ? How Simulations Work</h2>
-          <p className="sectionIntro">
-            Understand the math behind our calculators to make informed decisions.
+        <div>
+          
+          <p>
+           Eg: If you earn R25 000 per month, PAYE is deducted before your salary reaches your account. What lands in your bank account is your net income, not your gross salary.
           </p>
+        </div>
 
-          <div className="simGuides">
-            <ExpandableCard title="Rent vs Buy Property" >
-              <p>{SIMULATION_EXPLANATIONS.bondVsRent.content}</p>
-              <Callout label="THE FORMULA">
-                <p>{SIMULATION_EXPLANATIONS.bondVsRent.formula}</p>
-              </Callout>
-              <Callout label="SA CONTEXT">
-                <p>{SIMULATION_EXPLANATIONS.bondVsRent.saContext}</p>
-              </Callout>
-            </ExpandableCard>
+        <h4>2024/25 SARS Tax Brackets</h4>
+        <ul>
+          <li>R0 – R237 100: 18%</li>
+          <li>R237 101 – R370 500: 26%</li>
+          <li>R370 501 – R512 800: 31%</li>
+          <li>R512 801 – R673 000: 36%</li>
+          <li>R673 001 – R857 900: 39%</li>
+          <li>R857 901 – R1 817 000: 41%</li>
+          <li>R1 817 001+: 45%</li>
+        </ul>
+      </ExpandableCard>
 
-            <ExpandableCard title="Vehicle Affordability" >
-              <p>{SIMULATION_EXPLANATIONS.vehicleFinance.content}</p>
-              <Callout label="THE 20% RULE">
-                <p>{SIMULATION_EXPLANATIONS.vehicleFinance.formula}</p>
-              </Callout>
-              <Callout label="SA CONTEXT">
-                <p>{SIMULATION_EXPLANATIONS.vehicleFinance.saContext}</p>
-              </Callout>
-            </ExpandableCard>
-          </div>
-        </section>
+      <ExpandableCard title="UIF & Deductions">
+        <p>
+          The Unemployment Insurance Fund (UIF) provides temporary financial support when someone loses employment, becomes ill, or takes maternity, parental, or adoption leave.
+        </p>
 
-        <section className="learnSection">
-          <h2> Financial Glossary</h2>
-          <p className="sectionIntro">
-            Quick reference for common financial terms you'll encounter.
+        <div>
+          <h4>Pro Tip</h4>
+          <p>
+            Employees contribute 1% of their salary to UIF and employers contribute an additional 1% on their behalf. While the deduction seems small, it can provide valuable financial support during difficult periods.
           </p>
+        </div>
+      </ExpandableCard>
 
-          <div className="glossary">
-            {glossaryTerms.map((term, index) => (
-              <div key={index} className="glossaryItem">
-                <h4>{term.term}</h4>
-                <p>{term.definition}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+      <ExpandableCard title="Pension vs Retirement Annuity">
+        <p>
+          Both pensions and Retirement Annuities help South Africans save for retirement, but they function differently.
+        </p>
 
-        <section className="learnSection">
-          <h2> Practical Money Tips</h2>
-          <div className="tipsGrid">
-            <Nudge type="tip" title="Emergency Fund First" message="Before investing, build 3-6 months of expenses in an accessible savings account. This prevents debt when unexpected costs arise." dismissible={false} />
-            <Nudge type="tip" title="Start Small, Start Now" message="Even R500/month invested at 8% becomes R360,000 after 20 years. Time matters more than amount." dismissible={false} />
-            <Nudge type="tip" title="Review Subscriptions" message="The average South African spends R1 200+ monthly on streaming, gym, and app subscriptions - that's R14 400/year you could invest." dismissible={false} />
-            <Nudge type="tip" title="Negotiate Your Salary" message="A 10% raise early in your career compounds enormously. Always negotiate- the worst they can say is no." dismissible={false} />
+        <div className="comparisonBox">
+          <div className="comparisonItem">
+            <h4>Work Pension</h4>
+            <p>
+              Offered through your employer. Contributions are usually deducted automatically and some employers contribute alongside you.
+            </p>
           </div>
-        </section>
-      </div>
+
+          <div className="comparisonItem">
+            <h4>Retirement Annuity (RA)</h4>
+            <p>
+              A personal retirement investment that remains yours even when changing jobs. Contributions may qualify for tax deductions.
+            </p>
+          </div>
+        </div>
+      </ExpandableCard>
+
+      <ExpandableCard title="Tax-Free Savings Account (TFSA)">
+        <p>
+          A TFSA allows South Africans to invest money without paying tax on interest, dividends, or capital growth generated within the account.
+        </p>
+
+        <div >
+          <h4>Power of Tax-Free Investing</h4>
+          <p>
+            You may contribute up to R36 000 per tax year and R500 000 over your lifetime. Staying within these limits helps maximise long-term growth.
+          </p>
+        </div>
+      </ExpandableCard>
+
+      <ExpandableCard title="Compound Interest">
+        <p>
+          Compound interest occurs when your investment returns begin generating returns of their own. This creates exponential growth over time.
+        </p>
+
+        <div>
+          <h4>Reality Check</h4>
+          <p>
+            Investing R1 000 per month over 20 years at an average return of 8% can result in significant wealth accumulation. Starting early often matters more than investing large amounts later.
+          </p>
+        </div>
+      </ExpandableCard>
+
     </div>
-  );
+  </section>
+
+  <section className="learnSection">
+    <h2>Strategy Tracks Explained</h2>
+
+    <div className="strategyGrid">
+
+      <div className="strategyCard">
+        <h3>The Bystander</h3>
+        <p>
+          Designed for cautious beginners focused on budgeting, emergency funds, and building financial confidence before investing.
+        </p>
+      </div>
+
+      <div className="strategyCard">
+        <h3>Steady Pacer</h3>
+        <p>
+          A balanced approach that combines saving and investing while maintaining manageable levels of risk.
+        </p>
+      </div>
+
+      <div className="strategyCard">
+        <h3>The Sprinter</h3>
+        <p>
+          Focused on accelerated wealth creation through larger contributions and growth-oriented investments.
+        </p>
+      </div>
+
+      <div className="strategyCard">
+        <h3>Endurance Investor</h3>
+        <p>
+          A long-term strategy centred around retirement planning, property ownership, and sustainable wealth creation.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section className="learnSection">
+    <h2>How Simulations Work</h2>
+
+    <div className="simGuides">
+
+      <ExpandableCard title="Rent vs Buy Property">
+        <p>
+          This simulation compares the long-term financial impact of renting versus purchasing property. It considers deposits, bond repayments, and interest costs.
+        </p>
+
+        <div    >
+          <h4>SA Context</h4>
+          <p>
+            Property ownership may build equity over time, but homeowners must also budget for rates, levies, maintenance, and insurance.
+          </p>
+        </div>
+      </ExpandableCard>
+
+      <ExpandableCard title="Vehicle Affordability">
+        <p>
+          This simulation estimates whether a vehicle purchase is financially sustainable based on income, deposits, and monthly repayments.
+        </p>
+
+        <div    >
+          <h4>The 20% Rule</h4>
+          <p>
+            Many financial planners recommend that transport-related expenses remain below 20% of your monthly take-home income.
+          </p>
+        </div>
+      </ExpandableCard>
+
+      <ExpandableCard title="Investment Growth">
+        <p>
+          This simulation estimates how monthly investments may grow over time using compound interest principles.
+        </p>
+
+        <div    >
+          <h4>SA Context</h4>
+          <p>
+            Popular South African investment vehicles include ETFs, unit trusts, retirement annuities, and tax-free savings accounts.
+          </p>
+        </div>
+      </ExpandableCard>
+
+    </div>
+  </section>
+
+  <section className="learnSection">
+    <h2>Financial Glossary</h2>
+
+    <div className="glossary">
+      {glossaryTerms.map((term, index) => (
+        <div key={index} className="glossaryItem">
+          <h4>{term.term}</h4>
+          <p>{term.definition}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section className="learnSection">
+    <h2>Practical Money Tips</h2>
+
+    <div className="tipsGrid">
+      <Nudge
+        type="tip"
+        title="Emergency Fund First"
+        message="Build 3–6 months of expenses before taking on significant investment risk."
+        dismissible={false}
+      />
+
+      <Nudge
+        type="tip"
+        title="Start Small, Start Now"
+        message="Consistency beats perfection. Small monthly contributions compound significantly over time."
+        dismissible={false}
+      />
+
+      <Nudge
+        type="tip"
+        title="Review Subscriptions"
+        message="Unused subscriptions can quietly drain thousands of rand every year."
+        dismissible={false}
+      />
+
+      <Nudge
+        type="tip"
+        title="Negotiate Your Salary"
+        message="Career earnings have one of the biggest impacts on long-term wealth creation."
+        dismissible={false}
+      />
+    </div>
+  </section>
+
+</div>
+</div>   
+  ); 
 }
 
 export default Learn;
